@@ -41,37 +41,21 @@ function selectMappings(choice) {
     dropdown.toggleOpen();
 
     // make buttons selected or unselected
-    let allDropdownButtons = document.getElementsByClassName("dropdownButton");
-    let selectedDropdownButtons = document.getElementsByClassName("dropdown:" + mcd.chosenCategory);
     let allAnswerButtons = document.getElementsByClassName("answerButton");
     let selectedAnswerButtons = document.getElementsByClassName("answer:" + mcd.chosenCategory);
 
-    //make all answer- and dropdown buttons invisible
+    //make all answer buttons invisible
     for (let i = 0; i < allAnswerButtons.length; i++) {
         allAnswerButtons[i].style.display = "none";
-        if (i < allDropdownButtons.length) {
-            allDropdownButtons[i].style.color = "#1a1a1a";
-            allDropdownButtons[i].style.fontWeight = "normal";
-        }
     }
-    //make the selected answer- and dropdown buttons visible again
+    //make the selected answer buttons visible again
     for (let i = 0; i < selectedAnswerButtons.length; i++) {
         selectedAnswerButtons[i].style.display = "block";
-        if (i < selectedDropdownButtons.length) {
-            selectedDropdownButtons[i].style.color = "lightgoldenrodyellow";
-            selectedDropdownButtons[i].style.fontWeight = "bold";
-        }
     }
 
-    // if "all" selected, show all answerButtons.
-    if (mcd.chosenCategory === "all") {
-        //make all answer- and dropdown buttons visible
-        for (let i = 0; i < allAnswerButtons.length; i++) {
-            allAnswerButtons[i].style.display = "block";
-        }
-        document.getElementById("dropdown:all").style.color = "lightgoldenrodyellow";
-        document.getElementById("dropdown:all").style.fontWeight = "bold";
-    }
+    toggleVisibility("levels");
+    toggleVisibility("homepage");
+    chooseSentence();
 }
 
 function shuffle(array) {
@@ -132,16 +116,6 @@ function startMultipleChoiceTrainer(dict, title, buttons = true) {
     dropdown.toggleOpen();
 
     chooseSentence();
-
-    // make dropdown
-    dropdown.clearContent();
-    dropdown.toggleVisibility(true);
-
-    for (let i = 0; i < mcd.getCategoryKeys().length; i++) {
-        let category = mcd.getCategoryKeys()[i];
-        makeDropdownButton(category, function () { selectMappings(category); });
-    }
-    // makeDropdownButton("All", function () { selectMappings("all"); });
 };
 
 // Clears index.html so another Trainer can be started.
@@ -168,9 +142,32 @@ function showTrainings() {
     trainingDropdownOpen = !trainingDropdownOpen;
 };
 
+function toggleVisibility(id) {
+  var x = document.getElementById(id);
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+
+
+function goToHomepage() {
+
+    toggleVisibility("levels");
+    toggleVisibility("homepage");
+
+    
+}
+
 
 // start everything up
 window.addEventListener("load", function () {
+    // document.getElementById("homepage").toggleVisibility;
+
+    toggleVisibility("homepage");
+
 
     MultipleChoiceDict.formatDict(metaModelSentences);
 
