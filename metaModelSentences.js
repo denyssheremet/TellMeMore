@@ -2,6 +2,32 @@
 var metaModelSentences = {
     "Level 1": {
         "Unspecified Noun": {
+            yes: 
+            `
+            They are evil
+            People like my idea
+            Americans like eating a lot of sandwiches                      
+            Studens are cheap
+            Germans are funny
+            Cats are cute
+            Trump appeals to some voters
+            Books are interesting
+            People call me and they tell me: Donald, you are absolutely right
+            Some people might think some very specific thoughts now
+            `,
+            no: 
+            `
+            He is funny
+            Lisa told me she was impressed
+            Trump has cool hair
+            I'm thinking about my pet tiger
+            This book is interesting
+            Hans is funny
+            It is Jerry vs Harry
+            This cat is cute
+            This game is awesome!
+            John and Anne called me and said they liked this idea
+            `,
             questions: [
                 "People/Men/Women/Bankers/They/... are evil -> Who specifically is evil?",
                 "Schools don't work -> Which schools specificallly?",
@@ -43,6 +69,34 @@ var metaModelSentences = {
     I like food
 `},
         "Simple Deletion": {
+            yes: 
+            `
+            Look at how the carpet.
+            I like how my microwave.
+            I know.
+            I feel.
+            I told him and he agreed.
+            They are talking.
+            I am thinking.
+            Nobody is listening.
+            Now you can see.
+            You need to grow.
+            They are lying.
+            `,
+            no: 
+            `
+            Look at how the carpet looks.
+            I like how my microwave sounds.
+            I know how juggle oranges.
+            I feel my feet on the floor.
+            I told him to invest in Bitcoin and he agreed to do it.
+            They are talking about tomatoes.
+            I am thinking about tea. 
+            Nobody is listening to this song.
+            Now you can see colors.
+            You need to grow tomatoes in your backyard.
+            They are lying about grapefruits to the committee. 
+            `,
             questions: [
                 "I paint -> What do you paint?",
                 "We've talked -> Talked about what?",
@@ -50,10 +104,7 @@ var metaModelSentences = {
             ],
             examples:
                 `
-    I'm unhappy
     You can't Help me
-    I'm fed up 
-    I'm sad
     We can manage 
     I just can't start
     He is wrong 
@@ -64,9 +115,38 @@ var metaModelSentences = {
     Never again 
     He can't
     You must not do that 
-    Stop it
 `},
         "Comparative Deletion": {
+            yes: 
+            `
+            Marbles are better. 
+            This is the best project.
+            Dutch people are more creative than Austians. 
+            We the best.
+            We are the champions. 
+            I'm winning. 
+            This is the best option. 
+            He is the worst.
+            He gets the most out of life.
+            Ferarris are better than Lamborghinis
+            `,
+            q: 
+            `
+            Marbles are better than what? Better for what?
+            Best compared to what? 
+            How do you measure creativity?
+            We are the best at what? We are better than who?
+            We are the champions at what?
+            What are you winning at?
+            Best option compared to what?
+            Worst at doing what? Worse than who? 
+            Compared to whom? In what way is he getting the most out of life? 
+            Better in what way?
+            `,
+            no: 
+            `
+            
+            `,
             questions: [
                 "I'm the best -> Best at what? Compared to whom?",
                 "Cats are better than dogs -> Better at what / better in what way?",
@@ -95,6 +175,36 @@ var metaModelSentences = {
     },
     "Level 2": {
         "Unspecified Verb": {
+            yes: 
+            `
+            We need to grow this company.
+            We need to disrupt eduction.
+            They are endangering the project.
+            They are destroying education.
+            They are obstructing this process.
+            We are working together. 
+            I'm thinking about it. 
+            I'm working on it. 
+            He is waiting on his chance.
+            They are looking for opportunities.
+            `,
+            q: 
+            `
+            How (specifically) do they need to grow the company?
+            How (specifically) do we need to disrupt education? 
+            How (specifically) are they endangering the project?
+            How (specifically) are they destroying education?
+            How (specifically) are they obstructing this process?
+            How (specifically) are you working together?
+            What do you think?
+            How (specifically) are you working on it?
+            How (specifically) is he waiting on his chance?
+            How (specifically) are they looking for opportunities?
+            `,
+            no: 
+            `
+            
+            `,
             questions: [
                 "We need to grow -> What do you mean by grow?",
                 "We are improving communication -> How are you improving it?",
@@ -120,6 +230,45 @@ var metaModelSentences = {
     Let's go!
 `},
         "Nominalization": {
+            yes: 
+            `
+            I am giving him information.
+            We had a meeting.
+            They had a bad argument. 
+            I have a feeling. 
+            We had a talk. 
+            I have made my decision.
+            He has reached happiness.
+            I want to work in education. 
+            This is a disruption. 
+            I want to make translations.
+            `,
+            no: 
+            `
+            I inform him.
+            We met.
+            They argued.
+            I feel. 
+            We talked.
+            I decided.
+            He feels happy.
+            I want to educate.
+            This disrupts.
+            I want to translate.
+            `,
+            q:
+            `
+            Inform of what?
+            What did you do then?
+            Argued about what?
+            What do you feel?
+            What did you talk about?
+            What have you decided?
+            That's great. 
+            Who do you want to educate? Of what?
+            What does this disrupt?
+            What do you want to translate?
+            `,
             questions: [
                 "This is a disruption -> disrupt ->  What does it disrupt?.",
                 "There was a discussion -> discuss -> What did you discuss? With whom?",
@@ -146,6 +295,34 @@ var metaModelSentences = {
     Decisions are hard
 `},
         "Universal Quantifiers": {
+            yes: 
+            `
+            All people do this. 
+            Nobody understands me.
+            All cats are relaxed. 
+            All men/women/... are/do ...
+            This never works. 
+            Everything is yellow. 
+            I can't see anything. 
+            Everybody knows about this.
+            This trick always works.
+            `,
+            q: 
+            `
+            All people? Was there ever somebody that didn't?
+            Nobody? Not even you? Was there ever somebody that did?
+            All cats? Was there ever a cat that wasn't?
+            All ...? Ware there ever one that didn't?
+            Never? Did it ever work?
+            Everything? Is there anything that is another color?
+            Nothing? Is there anything you can see?
+            Everybody? Is there anybody that doesn't?
+            Always? Has it ever not worked?
+            `,        
+            no: 
+            `
+            
+            `,
             questions: [
                 "All cats are evil -> All cats? Has there ever been a cat that wasn't evil?",
                 "Nobody can understand this -> Nobody? Not even one person? Not even you?",
@@ -173,6 +350,28 @@ Doctors are always healthy
     },
     "Level 3": {
         "Complex Equivalence": {
+            yes: 
+            `
+            This means that.
+            He is eating pizza, so he must be have had a great day. 
+            Everybody is sitting, so they must be thinking.
+            They haven't called back, so they are not interested.
+            I stuttered, it was a bad presentation.
+            She asked a lot of questions, so she must not be interested. 
+            He was born in Februari, so he must be eccentric.
+            They raised their voice, so they must be angry about something.
+            They are blinking a lot, so they must be up to something.
+            When we shook hands, they squeezed hard. They must be out to get me.           
+            `,
+            q: 
+            `
+            How do you know this means that? Could that be caused by something else?
+
+            `,
+            no: 
+            `
+            
+            `,
             questions: [
                 "Her yelling means that she doesn't care about me -> How does her yelling mean that she doesn't care about you?",
                 "He is late, so he must be smart -> How does him being late mean that he is smart?",
@@ -194,6 +393,14 @@ He doesn't know what I want so he doesn't care about me
 She goes down to the gym so she must be healthy
 `},
         "Lost Comparative": {
+            yes: 
+            `
+            
+            `,
+            no: 
+            `
+            
+            `,
             questions: [
                 "This is important -> According to whom?",
                 "This is the best opportunity of your lifetime -> According to whom?",
@@ -222,6 +429,14 @@ People are more flexible these days
 They've been at it again
 `},
         "Mind Reading": {
+            yes: 
+            `
+            
+            `,
+            no: 
+            `
+            
+            `,
             questions: [
                 "I know you are going to like this -> How do you know that?",
                 "You are sad -> How do you know?",
@@ -249,6 +464,14 @@ I know you're enjoying this
 I know what you mean
 `},
         "Cause and Effect": {
+            yes: 
+            `
+            It hasn't worked in the past, so it won't work now.
+            `,
+            no: 
+            `
+            
+            `,
             questions: [
                 "You make me angry -> How exactly do I make you angry? Are you sure that is the cause?",
                 "That makes me sad -> How exactly does that make you sad? Are you sure that is the cause?",
@@ -278,6 +501,14 @@ Things always go wrong when she walks in here
     },
     "Level 4": {
         "Modal Operator of Necessity": {
+            yes: 
+            `
+            
+            `,
+            no: 
+            `
+            
+            `,
             questions: [
                 "",
                 "",
@@ -304,6 +535,14 @@ Things always go wrong when she walks in here
     You mustn't read this sentence right now
 `},
         "Modal Operator of Possibility": {
+            yes: 
+            `
+            
+            `,
+            no: 
+            `
+            
+            `,
             questions: [
                 "",
                 "",
@@ -330,6 +569,14 @@ Things always go wrong when she walks in here
     I might do what he says I should do at 19:00
 `},
         "Presupposition": {
+            yes: 
+            `
+            
+            `,
+            no: 
+            `
+            
+            `,
             questions: [
                 "",
                 "",
