@@ -233,41 +233,31 @@ var metaModelSentences = {
             yes: 
             `
             I am giving him information.
-            We had a meeting.
-            They had a bad argument. 
+            He is a true salesman.
+            We are in an argument. 
             I have a feeling. 
-            We had a talk. 
-            I have made my decision.
-            He has reached happiness.
+            I'm not a painter. 
+            I don't have creativity.
+            I can('t) reach happiness.
             I want to work in education. 
             This is a disruption. 
-            I want to make translations.
+            I am a student / teacher / educator.
             `,
             no: 
             `
             I inform him.
-            We met.
-            They argued.
+            He sells (well).
+            We are arguing.
             I feel. 
-            We talked.
-            I decided.
-            He feels happy.
+            I'm not painting.
+            I'm not thinking creatively.
+            I'm (not) happy now.
             I want to educate.
             This disrupts.
-            I want to translate.
+            I study / teach / educate.
             `,
             q:
             `
-            Inform of what?
-            What did you do then?
-            Argued about what?
-            What do you feel?
-            What did you talk about?
-            What have you decided?
-            That's great. 
-            Who do you want to educate? Of what?
-            What does this disrupt?
-            What do you want to translate?
             `,
             questions: [
                 "This is a disruption -> disrupt ->  What does it disrupt?.",
@@ -354,19 +344,27 @@ Doctors are always healthy
             `
             This means that.
             He is eating pizza, so he must be have had a great day. 
-            Everybody is sitting, so they must be thinking.
+            Everybody is sitting, so they must be confused.
             They haven't called back, so they are not interested.
             I stuttered, it was a bad presentation.
             She asked a lot of questions, so she must not be interested. 
-            He was born in Februari, so he must be eccentric.
+            He was born in February, so he must be eccentric.
             They raised their voice, so they must be angry about something.
             They are blinking a lot, so they must be up to something.
             When we shook hands, they squeezed hard. They must be out to get me.           
             `,
             q: 
             `
-            How do you know this means that? Could that be caused by something else?
-
+            How do you know this means that? Could that be caused by something else? Could it mean something else?
+            How do you know him eating pizza means that he had a great day? Could it mean something else?
+            How does them sitting mean that they are confused? Could it mean something else?
+            How does them not calling back yet mean that they don't care? Could it mean something else?
+            How do you know that stuttering means having a bad presentation? Could it mean something else?
+            How does asking a lot of questions mean not being interested? Could it mean something else?
+            How does being born in February mean being eccentric? Could it mean something else?
+            How does them raising their voice mean that they are angry? Could it mean something else? 
+            How does blinking a lot mean that they must be up to something? Could it mean something else?
+            Could them squeezing hard mean something else?
             `,
             no: 
             `
@@ -395,7 +393,29 @@ She goes down to the gym so she must be healthy
         "Lost Comparative": {
             yes: 
             `
-            
+            This is awesome. 
+            Drinking 5 liters of water a day is good.
+            Blue is sooo 2009.
+            That blue dress is overpriced.
+            Well, that escalated quickly. 
+            Piano music is boring.
+            Donald had great hair. 
+            Picasso is the best painter. 
+            That was a terrible movie. 
+            Working out every day is good for your health.
+            `,
+            q: 
+            `
+            According to whom?
+            According to whom?
+            According to whom?
+            According to whom?
+            According to whom?
+            According to whom?
+            According to whom?
+            According to whom?
+            According to whom?
+            According to whom?
             `,
             no: 
             `
@@ -431,7 +451,29 @@ They've been at it again
         "Mind Reading": {
             yes: 
             `
-            
+            And hold on, I know what you are thinking.
+            I don't want to talk to John, he is angry at me. 
+            You are full of energy. 
+            I know you think that ...
+            I know you are going to dislike/like this.
+            They haven't thought about this yet. 
+            She hasn't realized this yet. 
+            I know you want a change. 
+            You're going to like this, because you feel happy.
+            I know you are thinking of making a change in your life.
+            `,
+            q: 
+            `
+            How do you know that?
+            How do you know that?
+            How do you know that?
+            How do you know that?
+            How do you know that?
+            How do you know that?
+            How do you know that?
+            How do you know that?
+            How do you know that?
+            How do you know that?
             `,
             no: 
             `
@@ -467,6 +509,28 @@ I know what you mean
             yes: 
             `
             It hasn't worked in the past, so it won't work now.
+            You make me mad.
+            This pisses me off.
+            The exams give me anxiety. 
+            Having success in what you do makes you happy.
+            X causes Y.
+            The rain is causing me to feel like X.
+            I can't finish my work on time because of X. 
+            I can't do that because I have not studied math.
+            They are that way because they grew up in a poor neighborhood.
+            `,
+            q: 
+            `
+            How does that lead to each other? Has there ever been something that didn't work the first couple of times, but did work after that?
+            How do you know it's me that is making you mad? Do I have control over your brain?
+            How do you know it's this that is pissing you off? Was there ever a time this didn't piss you off?
+            How do you know that you feel anxious because of the exams? Can there be some other reason?
+            How (specifically) does having success make you happy (according to you)?
+            How do you know that X causes Y?
+            How do you know that it's the rain that is causing you to feel like X?
+            How do you know that it's because of X that you can't finish your work on time?
+            How does not having studied math make it impossible to do that?
+            Are there any people who grew up in a poor neighborhood that are not that way?
             `,
             no: 
             `
@@ -503,7 +567,30 @@ Things always go wrong when she walks in here
         "Modal Operator of Necessity": {
             yes: 
             `
-            
+            You need to do X.
+            You need to go to go to school.
+            You need to tell me the truth right now. 
+            You have to believe me. 
+            They need to go home now. 
+            They have to listen to me.
+            They need to understand this.
+            John should lose some weight.
+            You should visit your grandma.
+            They should listen to him. 
+            `,
+            q: 
+            `
+            What would happen if you didn't do X?
+            What would happen if you didn't?
+            What would happen if you didn't?
+            What would happen if you didn't?
+            What would happen if they didn't?
+            What would happen if they didn't?
+            What would happen if they didn't?
+            What would happen if hw didn't?
+            What would happen if you didn't?
+            What would happen if they didn't?
+
             `,
             no: 
             `
@@ -571,11 +658,29 @@ Things always go wrong when she walks in here
         "Presupposition": {
             yes: 
             `
-            
+            You can begin to calm down now. 
+            Do you realize that you are repressing your emotions?
+            I wonder whether you'll notice how beautiful the ceiling is. 
+            When are going to realize that you are repressing your emotions?
+            What are you going to cook for dinner tonight?
+            Have you decided what you are going to cook for dinner tonight?
+            Do you know when you will have decided what you are going to have cooked for dinner tonight?
+            After you get out of that frustration, let me know what you will cook for dinner tonight.
+            I think it is the lobster that they want to steal tonight.
+            After you've done X, will you have time to do Y?
             `,
             no: 
             `
-            
+            What makes you assume that I'm not calm now?
+            What makes you assume that I'm repressing emotions?
+            What makes you assume that the ceiling is beautiful?
+            What makes you assume that I'm repressing emotions?
+            What makes you assume that I'm going to cook dinner tonight?
+            What makes you assume that I'm going to cook dinner tonight?
+            What makes you assume that I'm going to cook dinner tonight?
+            What makes you assume that I feel frustrated and that I'm going to cook dinner tonight?
+            What makes you assume that they are going to steal something tonight?
+            What makes you assume that I will do X?
             `,
             questions: [
                 "",
