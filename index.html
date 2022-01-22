@@ -3,36 +3,12 @@
 
 <head>
     <script src="metaModelSentences.js"></script>
-    <script src="enrichedLanguageSentences.js"></script>
-    <script src="negativeBehaviours.js"></script>
-    <script src="metaPrograms.js"></script>
-    <script src="reframing.js"></script>
-    <script src="autocomplete.js"></script>
     <script src="main.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <h5 id="title"></h5>
-    <div class="chooseTraining">
-        <button onclick="showTrainings()" class="dropbtn">Menu</button>
-        <div id="trainingDropdown" class="dropdown-content">
-            <button onclick="selectTraining('MMT1')">Meta Model 1</button>
-            <button onclick="selectTraining('ELT1')">Enriched Language 1</button>
-            <button onclick="selectTraining('ELT2')">Enriched Language 2</button>
-            <button onclick="selectTraining('IRT1')">Intention Reframe 1</button>
-            <button onclick="selectTraining('LLT1')">Logical Levels 1</button>
-            <button onclick="selectTraining('MPT1')">Meta Programs 1</button>
-            <button onclick="selectTraining('MPT2')">Meta Programs 2</button>
-            <button onclick="selectTraining('MPT4')">Meta Programs 4</button>
-            <button onclick="selectTraining('RET1')">Reframing 1</button>
-            <button onclick="selectTraining('MIL1')">Milton Patterns 1</button>
-            <button onclick="selectTraining('PRE1')">Presuppositions 1</button>
-            <button onclick="selectTraining('SUB1')">Submodalities 1</button>
-            <button onclick="selectTraining('SAW1')">Self Advice Writer 1</button>
-            <button onclick="selectTraining('DBT1')">Double Bind Trainer</button>
-        </div>
-    </div>
     <div id="dropdown" class="dropdown">
         <button onclick="dropdown.toggleOpen()" class="dropbtn">Dropdown</button>
         <div id="selectionDropdown" class="dropdown-content"> </div>
