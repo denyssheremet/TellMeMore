@@ -86,72 +86,70 @@ function randFromList(listFrom, amount) {
     return shuffled.slice(0, amount);
 };
 
+function showButton(name) {
+    toggleVisibility("answer:Continue", 0);
+    toggleVisibility("answer:LetsGo", 0);
+    toggleVisibility("answer:Reveal", 0);
+    toggleVisibility("answer:NextSlide", 0);
+    toggleVisibility(name, 1);
+    
+}
+
 function nextExplanationSentence(ieg) {
     ie = ieg.getNext();
+
+    while (document.getElementById("revealedAnswer") !== null) {
+        document.getElementById("revealedAnswer").remove();
+    }
 
     // if last 
     if (ie === null || ie.ieType === "final") {
         startMultipleChoiceTrainer(ieg.level);
-    } 
-    
-    // if explanation
-    else if (ie.ieType === "explanation") { 
-        console.log("now")
+    }
+
+    // if next Subcategory
+    else if (ie.ieType === "explanation") {
+
         if (document.getElementById("answer:Continue") !== null) {
-            toggleVisibility("answer:Continue", 0);
-            toggleVisibility("answer:LetsGo", 0);
-            toggleVisibility("answer:Reveal", 0);
-            toggleVisibility("answer:NextSlide", 1);
+            showButton("answer:NextSlide");
         }
         question.setSentence("");
         if (document.getElementById("subCategory") !== null) {
             document.getElementById("subCategory").remove();
-        }        
+        }
         makeH1(ie.yes, "topDiv", "subCategory");
 
-        if (document.getElementById("revealedAnswer") !== null) {
-            document.getElementById("revealedAnswer").remove();
+    }
+    // if slide
+    else if (ie.ieType === "slide") {
+        if (document.getElementById("answer:Continue") !== null) {
+            showButton("answer:LetsGo");
+
         }
-    } 
-        // if slide
-        else if (ie.ieType === "slide") { 
-            console.log("now")
-            if (document.getElementById("answer:Continue") !== null) {
-                toggleVisibility("answer:Continue", 0);
-                toggleVisibility("answer:Reveal", 0);
-                toggleVisibility("answer:NextSlide", 0);
-                toggleVisibility("answer:LetsGo", 1);
-            }
-            question.setSentence("");
-            if (document.getElementById("subCategory") !== null) {
-                document.getElementById("subCategory").remove();
-            }        
-            makeH1(ie.yes, "topDiv", "subCategory");
-    
-            if (document.getElementById("revealedAnswer") !== null) {
-                document.getElementById("revealedAnswer").remove();
-            }
-        } 
-    
+        question.setSentence("");
+        if (document.getElementById("subCategory") !== null) {
+            document.getElementById("subCategory").remove();
+        }
+        makeH1(ie.yes, "topDiv", "subCategory");
+    }
+
     else { // if normal
         question.setSentence(ie.yes);
-
-        if (document.getElementById("revealedAnswer") !== null) {
-            document.getElementById("revealedAnswer").remove();
-            toggleVisibility("answer:Continue", 0);
-            toggleVisibility("answer:LetsGo", 0);
-            toggleVisibility("answer:Reveal", 1);
-            toggleVisibility("answer:NextSlide", 0);
-        }
+        showButton("answer:Reveal");
     }
 
 }
 
 function revealAnswer() {
-    makeH3(ie.q, "topDiv", "revealedAnswer");
-    toggleVisibility("answer:Continue", 1);
-    toggleVisibility("answer:Reveal", 0);
-    toggleVisibility("answer:NextSlide", 0);;
+    if (ie.ieType === "explanation") {
+        for (let i = 0; i < ie.q.length; i++) {
+            makeP(ie.q[i], "topDiv", "revealedAnswer")
+        }
+    } else {
+        makeH3(ie.q, "topDiv", "revealedAnswer");
+    }
+    showButton("answer:Continue");
+
 }
 
 // starts Introduction
@@ -177,10 +175,7 @@ function startIntroduction(level = "Level 1") {
     makeNextSlideButton(function () { nextExplanationSentence(ieg) }, "Let's Go!!!", "LetsGo");
     makeNextSlideButton(function () { revealAnswer() }, "Reveal Question...", "Reveal");
     makeNextSlideButton(function () { revealAnswer() }, "Show Explanation...", "NextSlide");
-    toggleVisibility("answer:Continue", 0);
-    toggleVisibility("answer:LetsGo", 1);
-    toggleVisibility("answer:Reveal", 0);
-    toggleVisibility("answer:NextSlide", 0);
+    showButton("answer:LetsGo");
 
 };
 
@@ -236,21 +231,17 @@ function clearIndex() {
 
 function toggleVisibility(id, value = -1) {
     var x = document.getElementById(id);
-    console.log(id);
 
     if (value === 0) {
         x.style.display = "none";
-        console.log(0);
     } else if (value === 1) {
         x.style.display = "block";
-        console.log(1);
     } else {
         if (x.style.display === "none") {
             x.style.display = "block";
         } else {
             x.style.display = "none";
         }
-        console.log(-1);
     }
 }
 

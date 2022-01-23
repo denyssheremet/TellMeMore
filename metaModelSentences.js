@@ -4,10 +4,12 @@ var metaModelSentences = {
         "Unspecified Noun": {
             explanation: 
             `
-            The Unspecified Noun is ...
-
-            Line 3
-            Line 4.
+            Nouns which do not refer to something specific (that you can touch)
+            ___
+            - Men do this...            -> Who specifically does this?     
+            - The audience loved it.    -> Who specifically loved it?     
+            - I know a lot of words.    -> Which words do you know?  
+            ___
             `,
             yes: 
             `
@@ -78,7 +80,12 @@ var metaModelSentences = {
         "Simple Deletion": {
             explanation: 
             `
-            
+            A sentence in which a word has been deleted.
+            ___
+            - I feel. -> What do you feel?
+            - They believe. -> What do they believe?
+            - He doesn't understand. -> What doesn't he understand?
+            ___
             `,
             yes: 
             `
@@ -145,7 +152,12 @@ var metaModelSentences = {
         "Comparative Deletion": {
             explanation: 
             `
-            
+            Comparative deletions are the worst.
+            ___
+            This is a better idea. -> Better than what?
+            Apples are better than oranges -> In what way are they better?
+            Comparative deletions are the worst. -> Worse than what?
+            ___
             `,
             yes: 
             `
@@ -207,7 +219,12 @@ var metaModelSentences = {
         "Unspecified Verb": {
             explanation: 
             `
-            
+            A verb that is vague.
+            ___
+            I'm taking it easy. -> What are you doing specifically?
+            She is becoming smarter -> How is she becoming smarter? What is she doing?
+            They are hanging out. -> What specifically are they doing?
+            ___
             `,
             yes: 
             `
@@ -266,7 +283,15 @@ var metaModelSentences = {
         "Nominalization": {
             explanation: 
             `
-            
+            The turning of a verb or adjective into a noun.
+            ___
+            We are in a discussion -> We are discussing.
+            I have anger -> I feel angry.
+            I have a presentation -> I am presenting.
+            ___
+            The proliferation of nominalizations in a discursive formation may be an indication of pomposity and abstraction.
+            -> ???
+            ___
             `,
             yes: 
             `
@@ -335,7 +360,12 @@ var metaModelSentences = {
         "Universal Quantifiers": {
             explanation: 
             `
-            
+            Words like Everything, Nothing, Everybody, Nobody, Always, Never, ...
+            ___
+            This always works -> Always? 
+            They never look down. -> Never?
+            Everybody I know has a goldfish -> Everybody?
+            ___
             `,
             yes: 
             `
@@ -394,7 +424,12 @@ Doctors are always healthy
         "Complex Equivalence": {
             explanation: 
             `
-            
+            Saying that an external event is equated to a internal state/emotion.
+            ___
+            The dog is barking, so he must hate me. -> How do you know that?
+            They are blinking a lot, so they must be happy. -> How do you know that?
+            That bird is looking at me the whole time, he must be out to get me. -> How do you know that?
+            ___
             `,
             yes: 
             `
@@ -446,10 +481,15 @@ I saw them down the pub together; they must be having an affair
 He doesn't know what I want so he doesn't care about me
 She goes down to the gym so she must be healthy
 `},
-        "Lost Comparative": {
+        "Lost Performative": {
             explanation: 
             `
-            
+            Opinion presented as fact.
+            ___
+            This is the correct way to eat apples. -> According to whom?
+            It is bad to judge others. -> According to whom?
+            This is a better way to do it. -> According to whom?
+            ___
             `,
             yes: 
             `
@@ -511,7 +551,12 @@ They've been at it again
         "Mind Reading": {
             explanation: 
             `
-            
+            Pretending to know what somebody else thinks.
+            ___
+            You really like me. -> How do you know that?
+            You cannot stand authority. -> How do you know that?
+            I know you are feeling good about that car. -> How do you know that?
+            ___
             `,
             yes: 
             `
@@ -572,7 +617,13 @@ I know what you mean
         "Cause and Effect": {
             explanation: 
             `
-            
+            Saying that something causes something else. 
+            A.K.A. blaming others.
+            ___
+            I couldn't do this because my mom called me. -> Can't you do anything when your mom calls you?
+            Fish make me sad. -> How do you become sad when you encounter fish?
+            I didn't write this paper because it rained. -> So when it rains, it is impossible for you to write a paper?
+            ___
             `,
             yes: 
             `
@@ -635,7 +686,12 @@ Things always go wrong when she walks in here
         "Modal Operator of Necessity": {
             explanation: 
             `
-            
+            Saying that something HAS to happen. 
+            ___
+            You have to clean your room. -> What would happen if I didn't?
+            They have to stop doing that. -> What would happen if they didn't?
+            You must listen to me. -> What would happen if I didn't?
+            ___
             `,
             yes: 
             `
@@ -734,7 +790,12 @@ Things always go wrong when she walks in here
         "Presupposition": {
             explanation: 
             `
-            
+            Realize that you already know what presuppositions are. 
+            ___
+            Do you realize that you're worried? -> What makes you assume that I'm worried?
+            I wonder when you will do a backflip. -> What makes you assume I'll do a backflip?
+            You used to be happy. -> What makes you assume that I'm not happy now?
+            ___
             `,
             yes: 
             `

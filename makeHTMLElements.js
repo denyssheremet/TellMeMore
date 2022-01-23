@@ -25,6 +25,15 @@ function makeH3(innerHTML, appendTo, id = "") {
     document.getElementById(appendTo).appendChild(h3);
 }
 
+function makeP(innerHTML, appendTo, id = "") {
+    let pre = document.createElement("PRE");
+    let h3 = document.createElement("P");
+    pre.innerHTML = h3;
+    h3.innerHTML = innerHTML;
+    h3.id = id;
+    document.getElementById(appendTo).appendChild(h3);
+}
+
 function makeAnswerButton(name, className, appendTo, func) {
     let btn = document.createElement("button");
     btn.id = "answer:" + name;

@@ -184,6 +184,7 @@ class MultipleChoiceDict {
                 dict[k1][key].examples = value.examples.split("\n").slice(1, -1);
                 dict[k1][key].yes = value.yes.split("\n").slice(1, -1);
                 dict[k1][key].q = value.q.split("\n").slice(1, -1);
+                dict[k1][key].explanation = value.explanation.split("\n").slice(1, -1);
                 // Trim spaces around sentences
                 for (let i = 0; i < dict[k1][key].examples.length; i++) {
                     dict[k1][key].examples[i] = dict[k1][key].examples[i].replace('•', '').trim();
@@ -191,6 +192,9 @@ class MultipleChoiceDict {
                 for (let i = 0; i < dict[k1][key].yes.length; i++) {
                     dict[k1][key].yes[i] = dict[k1][key].yes[i].replace('•', '').trim();
                     dict[k1][key].q[i] = dict[k1][key].q[i].replace('•', '').trim();
+                }
+                for (let i = 0; i < dict[k1][key].explanation.length; i++) {
+                    dict[k1][key].explanation[i] = dict[k1][key].explanation[i].replace('•', '').trim();
                 }
             }
         }
