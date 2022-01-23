@@ -4,7 +4,7 @@ var metaModelSentences = {
         "Unspecified Noun": {
             explanation:
                 `
-            Nouns which do not refer to something specific (that you can touch)
+            Nouns which do not refer to something specific
             ___
             - Men do this...            -> Who specifically does this?     
             - The audience loved it.    -> Who specifically loved it?     
@@ -20,7 +20,7 @@ var metaModelSentences = {
             Americans like eating a lot of sandwiches                      
             Studens are cheap
             Germans are funny
-            Trump appeals to some voters
+            Trump appeals to voters
             People call me and they tell me: Donald, you are absolutely right
             Some people might think some very specific thoughts right now
             `,
@@ -37,46 +37,35 @@ var metaModelSentences = {
             Who specifically calls you?
             Who specifically is thinking what thoughts right now?
             `,
-            questions: [
-                "People/Men/Women/Bankers/They/... are evil -> Who specifically is evil?",
-                "Schools don't work -> Which schools specificallly?",
-                "I have learned a lot -> What have you learned specifically?",
-            ],
             examples:
                 `
-    I want a change
-    It's terrible 
+    Experts say that eating apples is good for you
+    People need to hear this
     I have lots of skills
-    Meet you at the pub
-    I want a computer
-    I want the report tomorrow 
-    I'm signing you up for a course
-    I need it now 
-    We need this done today
-    Talk to customers 
-    I need a new car
-    Get the problem fixed 
-    I read it in a magazine
-    They don't rate me
-    People are stupid
-    They should know better 
-    It needs to be done properly
-    People make mistakes
+    Things need to be done properly
     Those people need to be disciplined
-    Those products are expensive 
+    Medicine is expensive 
     One knows what's best
-    This happens everyday 
-    If you learn this you will become very rich
-    We shouldn't do that 
+    People shouldn't do that 
     It's either them or us
-    We're all going to be made redundant
     Americans can express themselves 
-    If you can't beat them (at golf)....
-    People eat food
-    Dutch people are better than Germans at cooking according to me
-    We like to party
-    I like food
-`},
+    Designers have great taste
+                `,
+            questions:
+                `
+    Who specifically says that?
+    Who specifically needs to hear this?
+    Which skills do you have?
+    Which things need to be done properly?
+    Who specifically needs to be disciplined?
+    Which medicine is expensive?
+    Who knows what is best?
+    Who shouldn't do that?
+    It's either whom or whom?
+    Who specifically can express themselves?
+    Who specifically are you talking about? All of them?
+                `
+        },
         "Simple Deletion": {
             explanation:
                 `
@@ -115,40 +104,33 @@ var metaModelSentences = {
             What are they not listening to?
             What do you see?
             `,
-            no:
-                `
-            Look at how the carpet looks.
-            I like how my microwave sounds.
-            I know how juggle oranges.
-            I feel my feet on the floor.
-            I told him to invest in Bitcoin and he agreed to do it.
-            They are talking about tomatoes.
-            I am thinking about tea. 
-            Nobody is listening to this song.
-            Now you can see colors.
-            You need to grow tomatoes in your backyard.
-            They are lying about grapefruits to the committee. 
-            `,
-
-            questions: [
-                "I paint -> What do you paint?",
-                "We've talked -> Talked about what?",
-                "They stole -> Stole what? From whom?",
-            ],
             examples:
                 `
-    You can't Help me
-    We can manage 
+    You can't teach me
+    Hans can manage 
     I just can't start
     He is wrong 
     I know 
     I feel
-    I feel curious 
     I don't want to
     Never again 
     He can't
-    You must not do that 
-`},
+    I'm trying
+`,
+            questions:
+                `
+            You can't teach me about what?
+            Hans can't manage what?
+            What can't you start?
+            He is wrong about what?
+            What don't you know?
+            What do you feel?
+            What do you not want to do?
+            Never again what?
+            He can't do what?
+            What are you trying to do?
+    `
+        },
         "Comparative Deletion": {
             explanation:
                 `
@@ -163,7 +145,7 @@ var metaModelSentences = {
                 `
             Marbles are better. 
             This is the best project.
-            Dutch people are more creative than Austians. 
+            Dutch people are more creative than Austrians. 
             We the best.
             We are the champions. 
             I'm winning. 
@@ -185,37 +167,101 @@ var metaModelSentences = {
             Compared to whom? In what way is he getting the most out of life? 
             Better in what way?
             `,
-            no:
-                `
-            
-            `,
-            questions: [
-                "I'm the best -> Best at what? Compared to whom?",
-                "Cats are better than dogs -> Better at what / better in what way?",
-                "He is more intelligent -> More intelligent than who? How have you measured intelligence?",
-            ],
             examples:
                 `
     Our new product is more effective
-    It's for the greater good 
-    He's more sensitive
-    Soccer is better 
-    She goes further
     This is far more efficient 
+    He's more sensitive
+    Soccer is the best sport
+    That's better
+    She goes further
     You look happier
-    Hard beds are better 
-    He's more tolerant
-    She's much brighter 
-    This is more complicated
-    This is more like it 
-    Green is calmer
-    She's more fun 
     This is getting much easier
-    Blue is better 
+    Hard beds are better 
     I'm enjoying this so much more
-`},
+`,
+            questions:
+                `
+            More effective than what?
+            More efficient than what?
+            More sensitive than who?
+            Soccer is better than what? In which way?
+            Better than what? Better in what way?
+            Further than what?
+            Happier compared to what?
+            Easier than what?
+            Better than what? In what way?
+            More than what?
+    `
+        },
     },
     "Level 2": {
+        "Nominalization": {
+            explanation:
+                `
+            The turning of a verb or adjective into a noun.
+            ___
+            We are in a discussion -> We are discussing.
+            I have anger -> I feel angry.
+            I have a presentation -> I am presenting.
+            ___
+            The proliferation of nominalizations in a discursive formation may be an indication of pomposity and abstraction.
+            -> ???
+            ___
+            `,
+            yes:
+                `
+            I am giving him information.
+            He is a true salesman.
+            We are in an argument. 
+            I have a feeling. 
+            I'm not a painter. 
+            I don't have creativity.
+            I can't reach happiness.
+            I want to work in education. 
+            This is a disruption. 
+            I am a student / teacher / educator.
+            `,
+            q:
+                `
+            So you are informing him, of what do you inform him?
+            So he sells, what does he sell?
+            So you are arguing, what are you arguing about?
+            So you feel something, what do you feel?
+            So you're not painting, what do you want to paint?   
+            So you aren't working creatively, what do you want to create?     
+            So you are not happy now, what can you do to feel happy?
+            So you want to educate, what to you want to teach and to whom?
+            So this disrupts something, what does this disrupt?
+            So you study / teach / educate, what do you study / teach / educate?
+            `,
+            examples:
+                `
+    I want recognition
+    We have made our decision 
+    Your work needs more attention
+    I have a bad feeling 
+    I want more choice
+    There's no connection 
+    We had a great meeting
+    Failure worries me 
+    I want more engagement 
+    Decisions are hard
+`,
+            questions:
+                `
+            So you want to be recognized, by whom? For what?
+            What have you decided?
+            What do I need to attend to?
+            What do you feel?
+            What do you want to choose?
+            So, it doesn't connect, connect to what?
+            What did you do when you met each other?
+            So you don't want to fail. Fail at what? In what way?
+            Who do you want to engage? In what way?
+            Deciding about what do you find difficult?
+    `
+        },
         "Unspecified Verb": {
             explanation:
                 `
@@ -252,111 +298,34 @@ var metaModelSentences = {
             How (specifically) is he waiting on his chance?
             How (specifically) are they looking for opportunities?
             `,
-            no:
-                `
-            
-            `,
-            questions: [
-                "We need to grow -> What do you mean by grow?",
-                "We are improving communication -> How are you improving it?",
-                "We need to change this -> Change in what way?",
-            ],
             examples:
                 `
-    She rejected me
-    I'm enjoying this
-    I calmed the customer down 
-    My boss ruined me
+    I'm enjoying the sun
+    I took care of that problem you told me about 
+    This makes my day
     I've taken the heat out of the situation 
-    I did a great piece of work
-    I've seen the writing on the wall 
-    They get on really well
+    They get on really well with each other
     He's running the department badly 
-    I like him
-    This company is going places 
-    She has failed
-    I told him, now he should do it properly 
+    He is going places 
+    She is thriving
     I'm running on empty
-    At least he tries 
-    Let's go!
-`},
-        "Nominalization": {
-            explanation:
+    Throughout this project I have grown and learned a lot
+`,
+            questions:
                 `
-            The turning of a verb or adjective into a noun.
-            ___
-            We are in a discussion -> We are discussing.
-            I have anger -> I feel angry.
-            I have a presentation -> I am presenting.
-            ___
-            The proliferation of nominalizations in a discursive formation may be an indication of pomposity and abstraction.
-            -> ???
-            ___
-            `,
-            yes:
-                `
-            I am giving him information.
-            He is a true salesman.
-            We are in an argument. 
-            I have a feeling. 
-            I'm not a painter. 
-            I don't have creativity.
-            I can't reach happiness.
-            I want to work in education. 
-            This is a disruption. 
-            I am a student / teacher / educator.
-            `,
-            no:
-                `
-            I inform him.
-            He sells (well).
-            We are arguing.
-            I feel. 
-            I'm not painting.
-            I'm not thinking creatively.
-            I'm  happy now.
-            I want to educate.
-            This disrupts.
-            I study / teach / educate.
-            `,
-            q:
-                `
-            So you are informing him, of what do you inform him?
-            So he sells, what does he sell?
-            So you are arguing, what are you arguing about?
-            So you feel something, what do you feel?
-            So you're not painting, what do you want to paint?   
-            So you aren't working creatively, what do you want to create?     
-            So you are not happy now, what can you do to feel happy?
-            So you want to educate, what to you want to teach and to whom?
-            So this disrupts something, what does this disrupt?
-            So you study / teach / educate, what do you study / teach / educate?
-            `,
-            questions: [
-                "This is a disruption -> disrupt ->  What does it disrupt?.",
-                "There was a discussion -> discuss -> What did you discuss? With whom?",
-                "We had a meeting -> meet -> Who did you meet? What did you talk about?",
-            ],
-            examples:
-                `
-    I want recognition
-    We have made our decision 
-    Your work needs more attention
-    I have a bad feeling 
-    I want more choice
-    There's no relationship 
-    We had a great meeting
-    Failure worries me 
-    I want publicity
-    Our customers have no patience 
-    Sales doesn't work
-    He makes a bad impression 
-    Marketing doesn't work
-    We need better management 
-    Manufacturing has no future
-    I want more direction 
-    Decisions are hard
-`},
+            In what way are you enjoying the sun?
+            How did you take care of it?
+            How does this make your day?
+            What did you do?
+            How do they get on well? What do they do?
+            How is he running the department? What is he doing?
+            What is he doing?
+            What is she doing?
+            How are you running on empty? What are you doing?
+            Do what? 
+            In what way have you grown? What have you learned?
+    `
+        },
         "Universal Quantifiers": {
             explanation:
                 `
@@ -391,34 +360,35 @@ var metaModelSentences = {
             Everybody? Is there anybody that doesn't?
             Always? Has it ever not worked?
             `,
-            no:
-                `
-            
-            `,
-            questions: [
-                "All cats are evil -> All cats? Has there ever been a cat that wasn't evil?",
-                "Nobody can understand this -> Nobody? Not even one person? Not even you?",
-                "Everybody does/feels ... -> Is there anybody that doesn't do/feel ...?",
-            ],
             examples:
                 `
 He never listens to me
-Nobody likes me 
+Nobody likes hummus
 He always tells the truth
 All companies are greedy 
-No one cares any more
-It's always the honest people that love 
-Nobody is having any fun these days
+No one cares about anything anymore
 Nothing is the same anymore 
-All the competition exaggerates
+Everyone exaggerates everything
 Nothing works here 
-I'll never be able to get fit
+Everybody here works too hard
 Everybody's talking about it 
-They always have an excuse
-Everybody works too hard
-Sales people can never be trusted
-Doctors are always healthy
-`},
+She always has an excuse for everything
+`,
+            questions:
+                `
+            Never? Has he ever listened to anything you said?
+            Nobody? Is there anyone that likes hummus?
+            Always? Has he ever not done that?
+            All companies? 
+            No one? Anything?
+            Nothing?
+            Everyone? Everything?
+            Nothing?
+            Everybody?
+            Everybody?
+            Always? For everything?
+    `
+        },
     },
     "Level 3": {
 
@@ -458,36 +428,33 @@ Doctors are always healthy
             According to whom?
             According to whom?
             `,
-            no:
-                `
-            
-            `,
-            questions: [
-                "This is important -> According to whom?",
-                "This is the best opportunity of your lifetime -> According to whom?",
-                "Bankers are evil -> According to whom?",
-            ],
             examples:
                 `
-it's disaster to be made redundant
-People make mistakes
 Managers are overpaid
 You can't trust salespeople
 Marketing is an easy job
-They should have seen it coming 
 People like people who are like them
 They're always doing that 
 People learn from people who are different
-This report needs finishing 
-Learning algebra will make you successful
-This needs fixing
 Mistakes have been made 
 This report needs finishing
 Nobody is pulling their weight 
-A meeting has already been held about this
 People are more flexible these days 
-They've been at it again
-`},
+`,
+            questions:
+                `
+            According to whom?
+            According to whom?
+            According to whom?
+            According to whom?
+            According to whom?
+            According to whom?
+            According to whom?
+            According to whom?
+            According to whom?
+            According to whom?
+    `
+        },
         "Mind Reading": {
             explanation:
                 `
@@ -524,36 +491,33 @@ They've been at it again
             How do you know that?
             How do you know that?
             `,
-            no:
-                `
-            
-            `,
-            questions: [
-                "I know you are going to like this -> How do you know that?",
-                "You are sad -> How do you know?",
-                "He hates me -> How do you know?",
-            ],
             examples:
                 `
-you don't rate me
 I know you don't believe me 
 She's really happy now
-He doesn't want to help me 
 He'll laugh at this
-You just don't care 
+I know you just don't care about me
 They will think I'm stupid
-He's ever so happy 
-He'll be upset if you disturb him
 My boss thinks I'm lazy 
-He'll get upset if you leave early
-He'll hate you if you do that 
-When I present, everyone is judging me
-The boss is in a foul mood today 
-You understand effective MS Paint is
+Everyone is judging me
+I know you understand effective MS Paint is
 You know this isn't working 
-I know you're enjoying this
 I know what you mean
-`},
+`,
+            questions:
+                `
+            How do you know that?
+            How do you know that?
+            How do you know that?
+            How do you know that?
+            How do you know that?
+            How do you know that?
+            How do you know that?
+            How do you know that?
+            How do you know that?
+            How do you know that?
+    `
+        },
         "Cause and Effect": {
             explanation:
                 `
@@ -591,36 +555,33 @@ I know what you mean
             How does not having studied math make it impossible to do that?
             Are there any people who grew up in a poor neighborhood that are not that way?
             `,
-            no:
-                `
-            
-            `,
-            questions: [
-                "You make me angry -> How exactly do I make you angry? Are you sure that is the cause?",
-                "That makes me sad -> How exactly does that make you sad? Are you sure that is the cause?",
-                "Painting makes you more creative -> How exactly does painting make you more creative?",
-            ],
             examples:
                 `
-He makes me cringe just by speaking
-Because of you I feel worthless
-This exercise will inspire me
-I'm unhappy when he goes away
-If I stay in this job I have to work harder
-If you want a pay raise you have to stay late
+Because of you I feel bad
+This exercise will cause me to be inspired
+Studying architecture will make you sad
 If I do that I'll get into trouble
 My boss makes me angry
-If you do that I'll have to leave
-I feel tense as soon as speaks
-They restrict my enthusiasm
-I can't relax without music
-If you want success you have to give up your home life
+Music makes me relax
+Eating chocolate will make you thinner
 We can't do that because he won't listen
-If I do the presentation it will go badly
 There's no point trying, he won't listen
-I won't apply, they'll never give me the job
-Things always go wrong when she walks in here
-`},
+Working in a multidisciplinary group causes problems
+`,
+            questions:
+                `
+            How can I make you feel bad? Could there be any other reason?
+            How do you know this exercise will cause you to be inspired?
+            Can it be that something else is making you sad? How can architecture make you sad?
+            How do you know that?
+            How can he do that?
+            How can music do that?
+            How do you know that it's the chocolate that is making you thinner? Could there be any other explanation?
+            How does him not listening cause you not being able to do this?
+            How does him not listening lead to there being no point in trying?
+            How does working in a multidisciplinary group cause problems? Was there ever a time when it worked fine?
+    `
+        },
     },
     "Level 4": {
         "Modal Operator of Necessity": {
@@ -660,35 +621,33 @@ Things always go wrong when she walks in here
             What would happen if they didn't?
 
             `,
-            no:
-                `
-            
-            `,
-            questions: [
-                "",
-                "",
-                "",
-            ],
             examples:
                 `
-    I have to take care of her by feeding her grapes
-    You and I shouldn't play tennis now
-    You have to educate yourself well about how language works
-    You must arrive on time for tomorrow's meeting about plant intelligence
-    You've got to laugh when you watch this video
+    You have to educate yourself
+    You must arrive on time for tomorrow's meeting
     I must buy a new Tesla Model X from you right now
-    You have to dress yourself in a tuxedo for event X tonight
-    You must be polite to boss Eric by giving him a pat on the back now
+    You have to dress yourself in a tuxedo right now
+    You must be polite to Eric
     I have to drive this train until 20:00
-    You must brush your teeth today
     I mustn't leave this appartment yet
-    You need to make a strategy about how you are going to get to your home from here now
-    You have to sit on the chair next to Harry now 
-    You ought to care more about whether Liverpool wins the Champions League Final this season
-    You shouldn't talk to Harry about his dog today
-    This project must not fail to plant a tree in our garden before midnight
+    You need to make a strategy
+    This project must succeed
     You mustn't read this sentence right now
-`},
+`,
+            questions:
+                `
+           What would happen if I didn't? 
+           What would happen if I didn't? 
+           What would happen if I didn't? 
+           What would happen if I didn't? 
+           What would happen if I wasn't? 
+           What would happen if I didn't? 
+           What would happen if I did? 
+           What would happen if I  didn't? 
+           What would happen if it doesn't? 
+           What would happen if I did? 
+    `
+        },
         //         "Modal Operator of Possibility": {
         // explanation: 
         // `
@@ -763,29 +722,33 @@ Things always go wrong when she walks in here
             What makes you assume that they are going to steal something tonight?
             What makes you assume that I will do X?
             `,
-            questions: [
-                "",
-                "",
-                "",
-            ],
             examples:
                 `
-What are we going to do next?
-When this plan falls I'll say 'told you so'
-It will be easier when he leaves
-What will the next reorganization bring?
-When are you leaving?
+When this plan has failed, I'll say 'told you so'
+After you've cleaned the dishes, could you clean the floor?
+Do you realize that you are thinking of orange trees?
 Who are you going to fire next?
-You'll enjoy it once you do it
-Once you make a start you'll find it easy
-We can't buy a car because we don't have any cash
-I'll be so happy when he gets found out
-I can't go for lunch with you because I'm going to a customer meeting
-I can't learn to use this properly because I don't have enough time
+I wonder when you will realize that you are repressing your emotions
 What's going to go wrong next?
-I'm just waiting for a bus
-I'll be happy when this is all over
-`},
+Are you going to cook Italian tonight, or Greek?
+How are you going to take out the trash today?
+What are you trying to conceal?
+Most people don't realize that chocolate contains no sugar at all
+`,
+            questions:
+                `
+            What makes you assume that the plan will fail?
+            What makes you assume that I'm going to clean the dishes?
+            What makes you assume that I'm thinking of orange trees??
+            What makes you assume that I'm going to fire somebody?
+            What makes you assume that I'm repressing my emotions?
+            What makes you assume that something is going to go wrong next?
+            What makes you assume that I'm going to cook tonight?
+            What makes you assume that I'm going to take out the trash today?
+            What makes you assume that I'm trying to conceal something?
+            What makes you think that chocolate contains no sugar at all?
+    `
+        },
         "Complex Equivalence": {
             explanation:
                 `
@@ -822,29 +785,32 @@ I'll be happy when this is all over
     How does blinking a lot mean that they must be up to something? Could it mean something else?
     Could them squeezing hard mean something else?
     `,
-            no:
-                `
-    
-    `,
-            questions: [
-                "Her yelling means that she doesn't care about me -> How does her yelling mean that she doesn't care about you?",
-                "He is late, so he must be smart -> How does him being late mean that he is smart?",
-                "You cooked spaghetti, so you must be Italian -> How does cooking spaghetti mean that one is Italian?",
-            ],
             examples:
                 `
-He's silent, that means he ...
+He's silent, that means he is up to something
 A good relationship means never having to say sorry
-To stay in this job I have to work harder
-You can't have a well paid job that is enjoyable too
-If you want success you have to give up your home life
+Staying in this job means working harder
 That means trouble
-He came in late on Saturday; I'm going to have to fire him
-When you talk like that you are going to get fired
+He came in late on Saturday. That means I'm going to have to fire him
 He wears the same colour shirt as the boss: that means he's in for promotion
 I saw them down the pub together; they must be having an affair
-He doesn't know what I want so he doesn't care about me
-She goes down to the gym so she must be healthy
-`},
+He doesn't  talk to me, so he doesn't care about me
+She goes down to the gym, so she is healthy
+Seeing this sentence means you are almost done!
+`,
+            questions:
+                `
+                How do you know that means he is up to something?
+                How do you know that means never having to say sorry
+                How do you know that means working harder
+                How do you know that means trouble
+                How do you know that means you're going to have to fire him?
+                How do you know that means that he's in for a promotion?
+                How do you know that means they are having an affair?
+                How do you know that means that he doesn't care about you?
+                How do you know that means that means she is healthy?
+                Wait, really?
+    `
+        },
     }
 }
