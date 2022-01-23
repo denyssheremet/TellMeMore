@@ -122,12 +122,21 @@ class MultipleChoiceDict {
         // Turn sentence strings into arrays
         for (var [k1, v1] of Object.entries(dict)) {
             for (var [key, value] of Object.entries(dict[k1])) {
+                console.log(key, value);
                 dict[k1][key].examples = value.examples.split("\n").slice(1, -1);
+                dict[k1][key].yes = value.yes.split("\n").slice(1, -1);
+                dict[k1][key].q = value.q.split("\n").slice(1, -1);
                 // Trim spaces around sentences
                 for (let i = 0; i < dict[k1][key].examples.length; i++) {
                     dict[k1][key].examples[i] = dict[k1][key].examples[i].replace('•', '').trim();
                 }
+                for (let i = 0; i < dict[k1][key].yes.length; i++) {
+                    dict[k1][key].yes[i] = dict[k1][key].yes[i].replace('•', '').trim();
+                    dict[k1][key].q[i] = dict[k1][key].q[i].replace('•', '').trim();
+                }
             }
         }
+        console.log("Dict:");
+        console.log(dict);
     }
 }

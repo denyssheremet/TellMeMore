@@ -175,6 +175,6 @@ window.addEventListener("load", function () {
     dropdown = new Dropdown("dropdown", "selectionDropdown");
     question = new Question()
 
-    startMultipleChoiceTrainer(metaModelSentences, "Meta Model Trainer");
+    startMultipleChoiceTrainer(metaModelSentences, "Tell Me More v9.3");
 });
 

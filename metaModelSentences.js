@@ -4,14 +4,14 @@ var metaModelSentences = {
         "Unspecified Noun": {
             yes: 
             `
+            Just Do It!
+            Books are interesting
             They are evil
             People like my idea
             Americans like eating a lot of sandwiches                      
             Studens are cheap
             Germans are funny
-            Cats are cute
             Trump appeals to some voters
-            Books are interesting
             People call me and they tell me: Donald, you are absolutely right
             Some people might think some very specific thoughts now
             `,
@@ -27,6 +27,19 @@ var metaModelSentences = {
             This cat is cute
             This game is awesome!
             John and Anne called me and said they liked this idea
+            `,
+            q: 
+            `
+            Do what specifically?
+            Which books?
+            Who specifically?
+            Who specifically?
+            Who specifically?
+            Who specifically?
+            Who specifically?
+            Who specifically?
+            Who specifically?
+            Who specifically?
             `,
             questions: [
                 "People/Men/Women/Bankers/They/... are evil -> Who specifically is evil?",
@@ -73,15 +86,29 @@ var metaModelSentences = {
             `
             Look at how the carpet.
             I like how my microwave.
+            Yes We Can!
             I know.
             I feel.
             I told him and he agreed.
             They are talking.
             I am thinking.
+            You need to grow.
             Nobody is listening.
             Now you can see.
-            You need to grow.
-            They are lying.
+            `,
+            q:
+            `
+            Look at how the carpet what?
+            You like how your microwave does what?
+            Yes We Can Do What?
+            What do you know?
+            What do you feel?
+            What did you tell him?
+            What are they talking about?
+            What are you thinking?
+            What do you need to grow?
+            What are they not listening to?
+            What do you see?
             `,
             no: 
             `
@@ -97,6 +124,8 @@ var metaModelSentences = {
             You need to grow tomatoes in your backyard.
             They are lying about grapefruits to the committee. 
             `,
+
+
             questions: [
                 "I paint -> What do you paint?",
                 "We've talked -> Talked about what?",
@@ -238,7 +267,7 @@ var metaModelSentences = {
             I have a feeling. 
             I'm not a painter. 
             I don't have creativity.
-            I can('t) reach happiness.
+            I can't reach happiness.
             I want to work in education. 
             This is a disruption. 
             I am a student / teacher / educator.
@@ -251,13 +280,23 @@ var metaModelSentences = {
             I feel. 
             I'm not painting.
             I'm not thinking creatively.
-            I'm (not) happy now.
+            I'm  happy now.
             I want to educate.
             This disrupts.
             I study / teach / educate.
             `,
             q:
             `
+            So you are informing him, of what do you inform him?
+            So he sells, what does he sell?
+            So you are arguing, what are you arguing about?
+            So you feel something, what do you feel?
+            So you're not painting, what do you want to paint?   
+            So you aren't working creatively, what do you want to create?     
+            So you are not happy now, what can you do to feel happy?
+            So you want to educate, what to you want to teach and to whom?
+            So this disrupts something, what does this disrupt?
+            So you study / teach / educate, what do you study / teach / educate?
             `,
             questions: [
                 "This is a disruption -> disrupt ->  What does it disrupt?.",
@@ -621,40 +660,40 @@ Things always go wrong when she walks in here
     This project must not fail to plant a tree in our garden before midnight
     You mustn't read this sentence right now
 `},
-        "Modal Operator of Possibility": {
-            yes: 
-            `
+//         "Modal Operator of Possibility": {
+//             yes: 
+//             `
             
-            `,
-            no: 
-            `
+//             `,
+//             no: 
+//             `
             
-            `,
-            questions: [
-                "",
-                "",
-                "",
-            ],
-            examples:
-                `
-    I can't tell you the truth about what my given name is
-    I can't go to your place now 
-    I can't relax my right leg
-    I can't call Eric now 
-    I'll never be to able to learn how to tie my shoes
-    I won't be able to complete project X before the deadline tomorrow
-    I can't sleep now
-    I can't apply for job X
-    I couldn't possibly tell you what my real name is now
-    I might not finish report X before 15:00 today 
-    Today, I couldn't ask Jennie to raise my pay 5%
-    I can't imagine that you showered with cold water today
-    I can't concentrate on working on my job at the moment
-    Tomorrow, I might just tell him that I stole his Apple watch
-    I couldn't fire her from her current position
-    I could eat an apple if I tried 
-    I might do what he says I should do at 19:00
-`},
+//             `,
+//             questions: [
+//                 "",
+//                 "",
+//                 "",
+//             ],
+//             examples:
+//                 `
+//     I can't tell you the truth about what my given name is
+//     I can't go to your place now 
+//     I can't relax my right leg
+//     I can't call Eric now 
+//     I'll never be to able to learn how to tie my shoes
+//     I won't be able to complete project X before the deadline tomorrow
+//     I can't sleep now
+//     I can't apply for job X
+//     I couldn't possibly tell you what my real name is now
+//     I might not finish report X before 15:00 today 
+//     Today, I couldn't ask Jennie to raise my pay 5%
+//     I can't imagine that you showered with cold water today
+//     I can't concentrate on working on my job at the moment
+//     Tomorrow, I might just tell him that I stole his Apple watch
+//     I couldn't fire her from her current position
+//     I could eat an apple if I tried 
+//     I might do what he says I should do at 19:00
+// `},
         "Presupposition": {
             yes: 
             `
@@ -669,7 +708,7 @@ Things always go wrong when she walks in here
             I think it is the lobster that they want to steal tonight.
             After you've done X, will you have time to do Y?
             `,
-            no: 
+            q: 
             `
             What makes you assume that I'm not calm now?
             What makes you assume that I'm repressing emotions?
