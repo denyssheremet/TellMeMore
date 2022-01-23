@@ -1,3 +1,41 @@
+class IntroductionExample {
+    constructor(subCategory, yes, q, isFinished = false) {
+        this.subCategory = subCategory;
+        this.yes = yes;
+        this.q = q;
+        this.isFinished = isFinished;
+    }
+}
+
+class IntroductionExampleGiver {
+    constructor(mcd, level) {
+        this.level = level;
+        this.counter = 0;
+        this.mcd = mcd;
+        this.list = [];
+
+        for (let i = 0; i < this.mcd.getSubCategoryKeys(level).length; i++) {
+            let subCat = this.mcd.getSubCategoryKeys(level)[i];
+            this.list.push(new IntroductionExample(subCat, subCat, mcd.getExplanation(level, subCat), false))
+
+
+            let ys = mcd.getYesList(level, subCat)
+            let qs = mcd.getQList(level, subCat)
+
+            // for (let j = 0; j < ys.length; j++) {
+            for (let j = 0; j < 1; j++) {
+                this.list.push(new IntroductionExample(subCat, ys[j], qs[j], false))
+            }
+        }
+        this.list.push(new IntroductionExample("", "", "", true));
+    }
+
+    getNext() {
+        return this.list[this.counter++];
+    }
+
+}
+
 
 class Question {
     constructor() {
@@ -91,6 +129,18 @@ class MultipleChoiceDict {
         return this.dict[category][subCategory].examples;
     }
 
+    getYesList(category, subCategory) {
+        return this.dict[category][subCategory].yes;
+    }
+
+    getQList(category, subCategory) {
+        return this.dict[category][subCategory].q;
+    }
+
+    getExplanation(category, subCategory) {
+        return this.dict[category][subCategory].explanation;
+    }
+
     randCategory() {
         return randFromList(this.getCategoryKeys(), 1)[0];
     }
@@ -122,7 +172,6 @@ class MultipleChoiceDict {
         // Turn sentence strings into arrays
         for (var [k1, v1] of Object.entries(dict)) {
             for (var [key, value] of Object.entries(dict[k1])) {
-                console.log(key, value);
                 dict[k1][key].examples = value.examples.split("\n").slice(1, -1);
                 dict[k1][key].yes = value.yes.split("\n").slice(1, -1);
                 dict[k1][key].q = value.q.split("\n").slice(1, -1);
@@ -136,7 +185,5 @@ class MultipleChoiceDict {
                 }
             }
         }
-        console.log("Dict:");
-        console.log(dict);
     }
 }

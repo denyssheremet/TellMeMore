@@ -14,7 +14,6 @@
         <h5 id="title"></h5>
         <button class="dropbtn" onclick="goToHomepage()">Home</button>
         <div id="dropdown" class="dropdown">
-            <button onclick="dropdown.toggleOpen()" class="dropbtn">Dropdown</button>
             <div id="selectionDropdown" class="dropdown-content"> </div>
         </div>
 
@@ -25,10 +24,16 @@
         </div>
     </div>
     <div id="homepage">
-        <button class="dropbtn" onclick="selectMappings('Level 1')">Level 1</button>
-        <button class="dropbtn" onclick="selectMappings('Level 2')">Level 2</button>
-        <button class="dropbtn" onclick="selectMappings('Level 3')">Level 3</button>
-        <button class="dropbtn" onclick="selectMappings('Level 4')">Level 4</button>
+        <h3>Intro</h3>
+        <button class="dropbtn" onclick="startIntroduction('Level 1')">Level 1</button>
+        <button class="dropbtn" onclick="startIntroduction('Level 2')">Level 2</button>
+        <button class="dropbtn" onclick="startIntroduction('Level 3')">Level 3</button>
+        <button class="dropbtn" onclick="startIntroduction('Level 4')">Level 4</button>
+        <h3>Quiz</h3>
+        <button class="dropbtn" onclick="startMultipleChoiceTrainer('Level 1')">Level 1</button>
+        <button class="dropbtn" onclick="startMultipleChoiceTrainer('Level 2')">Level 2</button>
+        <button class="dropbtn" onclick="startMultipleChoiceTrainer('Level 3')">Level 3</button>
+        <button class="dropbtn" onclick="startMultipleChoiceTrainer('Level 4')">Level 4</button>
     </div>
 </body>
 

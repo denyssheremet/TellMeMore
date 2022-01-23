@@ -27,14 +27,24 @@ function makeAnswerButton(name, className, appendTo, func) {
     document.getElementById(appendTo).appendChild(btn);
 }
 
-function makeDropdownButton(name, func) {
+function makeNextButton(func) {
     let btn = document.createElement("button");
-    btn.id = "dropdown:" + name.toLowerCase();
-    btn.className = "dropdownButton dropdown:" + name.toLowerCase();
-    btn.innerHTML = name;
+    btn.id = "answer:" + "Continue";
+    btn.innerHTML = "Got it!";
+    btn.className = "answerButton answer:Continue";
     btn.onclick = func;
-    document.getElementById(dropdown.contentId).appendChild(btn);
+    document.getElementById("bottomDiv").appendChild(btn);
 }
+
+function makeRevealAnswerButton(func) {
+    let btn = document.createElement("button");
+    btn.id = "answer:" + "Reveal";
+    btn.innerHTML = "Reveal Question...";
+    btn.className = "answerButton answer:Continue";
+    btn.onclick = func;
+    document.getElementById("bottomDiv").appendChild(btn);
+}
+
 
 function makeTextArea(id, appendTo, placeholder = "", small = false) {
     let ta = document.createElement("textarea");

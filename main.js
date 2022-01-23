@@ -1,10 +1,9 @@
-var trainingDropdownOpen = false;
 
 var activeMetaPrograms = "all";
 
 var mcd;
-var dropdown;
 var question;
+var ie;
 
 
 function answerChosen(answer) {
@@ -30,15 +29,18 @@ function chooseSentence() {
     question.setAnswer(sentence.subCategory);
 };
 
-function selectMappings(choice) {
-    mcd.chosenCategory = choice;
+function selectMappings(choice, explanation = false) {
+    if (explanation) {
+        let allAnswerButtons = document.getElementsByClassName("answerButton");
 
-    if (dropdown.isOpen) {
-        chooseSentence();
-    } else {
-        question.clear();
+        //make all answer buttons invisible
+        for (let i = 0; i < allAnswerButtons.length; i++) {
+            allAnswerButtons[i].style.display = "none";
+        }
+        document.getElementById("answer:Continue").style.display = "block";
+        return;
     }
-    dropdown.toggleOpen();
+    mcd.chosenCategory = choice;
 
     // make buttons selected or unselected
     let allAnswerButtons = document.getElementsByClassName("answerButton");
@@ -53,8 +55,6 @@ function selectMappings(choice) {
         selectedAnswerButtons[i].style.display = "block";
     }
 
-    toggleVisibility("levels");
-    toggleVisibility("homepage");
     chooseSentence();
 }
 
@@ -86,19 +86,75 @@ function randFromList(listFrom, amount) {
     return shuffled.slice(0, amount);
 };
 
+function nextExplanationSentence(ieg) {
+    ie = ieg.getNext();
+
+    if (ie === null || ie.isFinished) {
+        startMultipleChoiceTrainer(ieg.level);
+    } else {
+        question.setSentence(ie.yes);
+    }
+
+    if (document.getElementById("revealedAnswer") !== null) {
+        document.getElementById("revealedAnswer").remove();
+        toggleVisibility("answer:Reveal", 1);
+    }
+    if (document.getElementById("answer:Continue") !== null) {
+        toggleVisibility("answer:Continue", 0);
+    }
+}
+
+function revealAnswer() {
+    makeH3(ie.q, "topDiv", "revealedAnswer");
+    toggleVisibility("answer:Reveal", 0);
+    toggleVisibility("answer:Continue", 1);
+}
+
+// starts Introduction
+function startIntroduction(level = "Level 1") {
+    clearIndex();
+
+    toggleVisibility("levels", 1);
+    toggleVisibility("homepage", 0);
+
+    clearIndex();
+    document.getElementById("title").innerHTML = "Tell Me More: Introduction";
+    question = new Question();
+    question.clear();
+
+    mcd = new MultipleChoiceDict(metaModelSentences);
+    mcd.chosenCategory = level;
+
+    let ieg = new IntroductionExampleGiver(mcd, level);
+
+    nextExplanationSentence(ieg);
+
+    makeNextButton(function () { nextExplanationSentence(ieg) });
+    makeRevealAnswerButton(function () { revealAnswer() });
+    toggleVisibility("answer:Continue", 0);
+    toggleVisibility("answer:Reveal", 1);
+
+
+};
+
 
 
 // starts Meta Model Trainer 1
-function startMultipleChoiceTrainer(dict, title, buttons = true) {
+function startMultipleChoiceTrainer(level = "Level 1") {
+
+    toggleVisibility("levels", 1);
+    toggleVisibility("homepage", 0);
+
     clearIndex();
-    document.getElementById("title").innerHTML = title;
+    document.getElementById("title").innerHTML = "Tell Me More! v9.3";
     question = new Question();
     question.clear();
 
 
-    mcd = new MultipleChoiceDict(dict);
+    mcd = new MultipleChoiceDict(metaModelSentences);
+    mcd.chosenCategory = level;
 
-    // Make Answer Buttons
+    // // Make Answer Buttons
     for (let i = 0; i < mcd.getCategoryKeys().length; i++) {
         let category = mcd.getCategoryKeys()[i];
         makeDiv(category + "Buttons", "bottomDiv", category);
@@ -112,10 +168,11 @@ function startMultipleChoiceTrainer(dict, title, buttons = true) {
         }
     }
 
+    // let y = 0;
+    // makeAnswerButton("Continue", "next", "topDiv", function () { chooseSentence(y); y+=1; })
     selectMappings(mcd.chosenCategory);
-    dropdown.toggleOpen();
 
-    chooseSentence();
+
 };
 
 // Clears index.html so another Trainer can be started.
@@ -125,40 +182,39 @@ function clearIndex() {
     document.getElementById("bottomDiv").style.display = "block";
     document.getElementById("bottomDiv").style.margin = "0px";
     document.getElementById("title").innerHTML = "";
-    if (dropdown != null) {
-        dropdown.toggleVisibility(false);
-    }
     if (mcd != null) {
-        mcd.chosenCategory = "all";
+        mcd.chosenCategory = "Level 1";
     }
 };
 
-function showTrainings() {
-    if (trainingDropdownOpen) {
-        document.getElementById("trainingDropdown").style.display = "none";
+
+function toggleVisibility(id, value = -1) {
+    var x = document.getElementById(id);
+    console.log(id);
+
+    if (value === 0) {
+        x.style.display = "none";
+        console.log(0);
+    } else if (value === 1) {
+        x.style.display = "block";
+        console.log(1);
     } else {
-        document.getElementById("trainingDropdown").style.display = "grid";
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+        console.log(-1);   
     }
-    trainingDropdownOpen = !trainingDropdownOpen;
-};
-
-function toggleVisibility(id) {
-  var x = document.getElementById(id);
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
 }
 
 
 
 function goToHomepage() {
 
-    toggleVisibility("levels");
-    toggleVisibility("homepage");
+    toggleVisibility("levels", 0);
+    toggleVisibility("homepage", 1);
 
-    
 }
 
 
@@ -166,15 +222,14 @@ function goToHomepage() {
 window.addEventListener("load", function () {
     // document.getElementById("homepage").toggleVisibility;
 
-    toggleVisibility("homepage");
+    toggleVisibility("homepage", 1);
+    toggleVisibility("levels", 0);
 
 
     MultipleChoiceDict.formatDict(metaModelSentences);
 
-    clearIndex();
-    dropdown = new Dropdown("dropdown", "selectionDropdown");
+    // clearIndex();
     question = new Question()
 
-    startMultipleChoiceTrainer(metaModelSentences, "Tell Me More v9.3");
 });
 

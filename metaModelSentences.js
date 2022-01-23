@@ -2,6 +2,13 @@
 var metaModelSentences = {
     "Level 1": {
         "Unspecified Noun": {
+            explanation: 
+            `
+            The Unspecified Noun is ...
+
+            Line 3
+            Line 4.
+            `,
             yes: 
             `
             Just Do It!
@@ -13,33 +20,20 @@ var metaModelSentences = {
             Germans are funny
             Trump appeals to some voters
             People call me and they tell me: Donald, you are absolutely right
-            Some people might think some very specific thoughts now
-            `,
-            no: 
-            `
-            He is funny
-            Lisa told me she was impressed
-            Trump has cool hair
-            I'm thinking about my pet tiger
-            This book is interesting
-            Hans is funny
-            It is Jerry vs Harry
-            This cat is cute
-            This game is awesome!
-            John and Anne called me and said they liked this idea
+            Some people might think some very specific thoughts right now
             `,
             q: 
             `
-            Do what specifically?
-            Which books?
-            Who specifically?
-            Who specifically?
-            Who specifically?
-            Who specifically?
-            Who specifically?
-            Who specifically?
-            Who specifically?
-            Who specifically?
+            Just do what specifically?
+            Which books are interesting?
+            Who specifically is evil?
+            Who specifically likes your idea?
+            Who specifically likes eating sandwiches? ALL Americans?
+            Who specifically is cheap?
+            Who specifically is funny? ALL Germans?
+            Who specifically does Trump appeal to?
+            Who specifically calls you?
+            Who specifically is thinking what thoughts right now?
             `,
             questions: [
                 "People/Men/Women/Bankers/They/... are evil -> Who specifically is evil?",
@@ -82,6 +76,10 @@ var metaModelSentences = {
     I like food
 `},
         "Simple Deletion": {
+            explanation: 
+            `
+            
+            `,
             yes: 
             `
             Look at how the carpet.
@@ -105,7 +103,7 @@ var metaModelSentences = {
             What do you feel?
             What did you tell him?
             What are they talking about?
-            What are you thinking?
+            What are you thinking about?
             What do you need to grow?
             What are they not listening to?
             What do you see?
@@ -124,7 +122,6 @@ var metaModelSentences = {
             You need to grow tomatoes in your backyard.
             They are lying about grapefruits to the committee. 
             `,
-
 
             questions: [
                 "I paint -> What do you paint?",
@@ -146,6 +143,10 @@ var metaModelSentences = {
     You must not do that 
 `},
         "Comparative Deletion": {
+            explanation: 
+            `
+            
+            `,
             yes: 
             `
             Marbles are better. 
@@ -204,6 +205,10 @@ var metaModelSentences = {
     },
     "Level 2": {
         "Unspecified Verb": {
+            explanation: 
+            `
+            
+            `,
             yes: 
             `
             We need to grow this company.
@@ -219,7 +224,7 @@ var metaModelSentences = {
             `,
             q: 
             `
-            How (specifically) do they need to grow the company?
+            How (specifically) do you need to grow the company?
             How (specifically) do we need to disrupt education? 
             How (specifically) are they endangering the project?
             How (specifically) are they destroying education?
@@ -259,6 +264,10 @@ var metaModelSentences = {
     Let's go!
 `},
         "Nominalization": {
+            explanation: 
+            `
+            
+            `,
             yes: 
             `
             I am giving him information.
@@ -324,6 +333,10 @@ var metaModelSentences = {
     Decisions are hard
 `},
         "Universal Quantifiers": {
+            explanation: 
+            `
+            
+            `,
             yes: 
             `
             All people do this. 
@@ -366,7 +379,7 @@ All companies are greedy
 No one cares any more
 It's always the honest people that love 
 Nobody is having any fun these days
-Nothings the same anymore 
+Nothing is the same anymore 
 All the competition exaggerates
 Nothing works here 
 I'll never be able to get fit
@@ -379,6 +392,10 @@ Doctors are always healthy
     },
     "Level 3": {
         "Complex Equivalence": {
+            explanation: 
+            `
+            
+            `,
             yes: 
             `
             This means that.
@@ -430,6 +447,10 @@ He doesn't know what I want so he doesn't care about me
 She goes down to the gym so she must be healthy
 `},
         "Lost Comparative": {
+            explanation: 
+            `
+            
+            `,
             yes: 
             `
             This is awesome. 
@@ -488,6 +509,10 @@ People are more flexible these days
 They've been at it again
 `},
         "Mind Reading": {
+            explanation: 
+            `
+            
+            `,
             yes: 
             `
             And hold on, I know what you are thinking.
@@ -545,6 +570,10 @@ I know you're enjoying this
 I know what you mean
 `},
         "Cause and Effect": {
+            explanation: 
+            `
+            
+            `,
             yes: 
             `
             It hasn't worked in the past, so it won't work now.
@@ -604,6 +633,10 @@ Things always go wrong when she walks in here
     },
     "Level 4": {
         "Modal Operator of Necessity": {
+            explanation: 
+            `
+            
+            `,
             yes: 
             `
             You need to do X.
@@ -661,6 +694,10 @@ Things always go wrong when she walks in here
     You mustn't read this sentence right now
 `},
 //         "Modal Operator of Possibility": {
+            // explanation: 
+            // `
+            
+            // `,
 //             yes: 
 //             `
             
@@ -695,6 +732,10 @@ Things always go wrong when she walks in here
 //     I might do what he says I should do at 19:00
 // `},
         "Presupposition": {
+            explanation: 
+            `
+            
+            `,
             yes: 
             `
             You can begin to calm down now. 
