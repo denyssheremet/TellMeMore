@@ -15,6 +15,7 @@ class IntroductionExampleGiver {
         this.list = [];
 
         for (let j = 0; j < 3; j++) {
+            this.list.push(new IntroductionExample("", "Round " + (j+1) + "/3...", "", "slide"));
 
             for (let i = 0; i < this.mcd.getSubCategoryKeys(level).length; i++) {
                 let subCat = this.mcd.getSubCategoryKeys(level)[i];

@@ -99,6 +99,7 @@ function nextExplanationSentence(ieg) {
         console.log("now")
         if (document.getElementById("answer:Continue") !== null) {
             toggleVisibility("answer:Continue", 0);
+            toggleVisibility("answer:LetsGo", 0);
             toggleVisibility("answer:Reveal", 0);
             toggleVisibility("answer:NextSlide", 1);
         }
@@ -138,6 +139,7 @@ function nextExplanationSentence(ieg) {
         if (document.getElementById("revealedAnswer") !== null) {
             document.getElementById("revealedAnswer").remove();
             toggleVisibility("answer:Continue", 0);
+            toggleVisibility("answer:LetsGo", 0);
             toggleVisibility("answer:Reveal", 1);
             toggleVisibility("answer:NextSlide", 0);
         }
@@ -176,9 +178,9 @@ function startIntroduction(level = "Level 1") {
     makeNextSlideButton(function () { revealAnswer() }, "Reveal Question...", "Reveal");
     makeNextSlideButton(function () { revealAnswer() }, "Show Explanation...", "NextSlide");
     toggleVisibility("answer:Continue", 0);
-    toggleVisibility("answer:LetsGo", 0);
+    toggleVisibility("answer:LetsGo", 1);
     toggleVisibility("answer:Reveal", 0);
-    toggleVisibility("answer:NextSlide", 1);
+    toggleVisibility("answer:NextSlide", 0);
 
 };
 
