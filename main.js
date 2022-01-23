@@ -89,25 +89,67 @@ function randFromList(listFrom, amount) {
 function nextExplanationSentence(ieg) {
     ie = ieg.getNext();
 
-    if (ie === null || ie.isFinished) {
+    // if last 
+    if (ie === null || ie.ieType === "final") {
         startMultipleChoiceTrainer(ieg.level);
-    } else {
+    } 
+    
+    // if explanation
+    else if (ie.ieType === "explanation") { 
+        console.log("now")
+        if (document.getElementById("answer:Continue") !== null) {
+            toggleVisibility("answer:Continue", 0);
+            toggleVisibility("answer:Reveal", 0);
+            toggleVisibility("answer:NextSlide", 1);
+        }
+        question.setSentence("");
+        if (document.getElementById("subCategory") !== null) {
+            document.getElementById("subCategory").remove();
+        }        
+        makeH1(ie.yes, "topDiv", "subCategory");
+
+        if (document.getElementById("revealedAnswer") !== null) {
+            document.getElementById("revealedAnswer").remove();
+        }
+    } 
+        // if slide
+        else if (ie.ieType === "slide") { 
+            console.log("now")
+            if (document.getElementById("answer:Continue") !== null) {
+                toggleVisibility("answer:Continue", 0);
+                toggleVisibility("answer:Reveal", 0);
+                toggleVisibility("answer:NextSlide", 0);
+                toggleVisibility("answer:LetsGo", 1);
+            }
+            question.setSentence("");
+            if (document.getElementById("subCategory") !== null) {
+                document.getElementById("subCategory").remove();
+            }        
+            makeH1(ie.yes, "topDiv", "subCategory");
+    
+            if (document.getElementById("revealedAnswer") !== null) {
+                document.getElementById("revealedAnswer").remove();
+            }
+        } 
+    
+    else { // if normal
         question.setSentence(ie.yes);
+
+        if (document.getElementById("revealedAnswer") !== null) {
+            document.getElementById("revealedAnswer").remove();
+            toggleVisibility("answer:Continue", 0);
+            toggleVisibility("answer:Reveal", 1);
+            toggleVisibility("answer:NextSlide", 0);
+        }
     }
 
-    if (document.getElementById("revealedAnswer") !== null) {
-        document.getElementById("revealedAnswer").remove();
-        toggleVisibility("answer:Reveal", 1);
-    }
-    if (document.getElementById("answer:Continue") !== null) {
-        toggleVisibility("answer:Continue", 0);
-    }
 }
 
 function revealAnswer() {
     makeH3(ie.q, "topDiv", "revealedAnswer");
-    toggleVisibility("answer:Reveal", 0);
     toggleVisibility("answer:Continue", 1);
+    toggleVisibility("answer:Reveal", 0);
+    toggleVisibility("answer:NextSlide", 0);;
 }
 
 // starts Introduction
@@ -129,11 +171,14 @@ function startIntroduction(level = "Level 1") {
 
     nextExplanationSentence(ieg);
 
-    makeNextButton(function () { nextExplanationSentence(ieg) });
-    makeRevealAnswerButton(function () { revealAnswer() });
+    makeNextSlideButton(function () { nextExplanationSentence(ieg) }, "Got It!", "Continue");
+    makeNextSlideButton(function () { nextExplanationSentence(ieg) }, "Let's Go!!!", "LetsGo");
+    makeNextSlideButton(function () { revealAnswer() }, "Reveal Question...", "Reveal");
+    makeNextSlideButton(function () { revealAnswer() }, "Show Explanation...", "NextSlide");
     toggleVisibility("answer:Continue", 0);
-    toggleVisibility("answer:Reveal", 1);
-
+    toggleVisibility("answer:LetsGo", 0);
+    toggleVisibility("answer:Reveal", 0);
+    toggleVisibility("answer:NextSlide", 1);
 
 };
 
@@ -168,8 +213,7 @@ function startMultipleChoiceTrainer(level = "Level 1") {
         }
     }
 
-    // let y = 0;
-    // makeAnswerButton("Continue", "next", "topDiv", function () { chooseSentence(y); y+=1; })
+    makeH1("Now It's Your Turn...", "topDiv", "subCategory");
     selectMappings(mcd.chosenCategory);
 
 
@@ -204,7 +248,7 @@ function toggleVisibility(id, value = -1) {
         } else {
             x.style.display = "none";
         }
-        console.log(-1);   
+        console.log(-1);
     }
 }
 

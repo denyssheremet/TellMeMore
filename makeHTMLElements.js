@@ -4,6 +4,13 @@ function makeDiv(divName, appendTo) {
     document.getElementById(appendTo).appendChild(div);
 }
 
+function makeH1(innerHTML, appendTo, id = "") {
+    let h2 = document.createElement("h1");
+    h2.innerHTML = innerHTML;
+    h2.id = id;
+    document.getElementById(appendTo).appendChild(h2);
+}
+
 function makeH2(innerHTML, appendTo, id = "") {
     let h2 = document.createElement("h2");
     h2.innerHTML = innerHTML;
@@ -27,24 +34,14 @@ function makeAnswerButton(name, className, appendTo, func) {
     document.getElementById(appendTo).appendChild(btn);
 }
 
-function makeNextButton(func) {
+function makeNextSlideButton(func, text, idText) {
     let btn = document.createElement("button");
-    btn.id = "answer:" + "Continue";
-    btn.innerHTML = "Got it!";
+    btn.id = "answer:" + idText;
+    btn.innerHTML = text;
     btn.className = "answerButton answer:Continue";
     btn.onclick = func;
     document.getElementById("bottomDiv").appendChild(btn);
 }
-
-function makeRevealAnswerButton(func) {
-    let btn = document.createElement("button");
-    btn.id = "answer:" + "Reveal";
-    btn.innerHTML = "Reveal Question...";
-    btn.className = "answerButton answer:Continue";
-    btn.onclick = func;
-    document.getElementById("bottomDiv").appendChild(btn);
-}
-
 
 function makeTextArea(id, appendTo, placeholder = "", small = false) {
     let ta = document.createElement("textarea");

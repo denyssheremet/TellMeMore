@@ -1,6 +1,6 @@
 * {
     background-color: black;
-    color: white;
+    color: lightgray;
     font-family: Helvetica, Arial, sans-serif;
 }
 
@@ -8,6 +8,10 @@ textarea {
     width: -webkit-fill-available;
     margin: 20px;
     min-height: 80px;
+}
+
+#subCategory {
+    color: darkolivegreen;
 }
 
 #sentence {

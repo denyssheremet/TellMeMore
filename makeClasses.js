@@ -1,9 +1,9 @@
 class IntroductionExample {
-    constructor(subCategory, yes, q, isFinished = false) {
+    constructor(subCategory, yes, q, ieType) {
         this.subCategory = subCategory;
         this.yes = yes;
         this.q = q;
-        this.isFinished = isFinished;
+        this.ieType = ieType;
     }
 }
 
@@ -14,20 +14,26 @@ class IntroductionExampleGiver {
         this.mcd = mcd;
         this.list = [];
 
-        for (let i = 0; i < this.mcd.getSubCategoryKeys(level).length; i++) {
-            let subCat = this.mcd.getSubCategoryKeys(level)[i];
-            this.list.push(new IntroductionExample(subCat, subCat, mcd.getExplanation(level, subCat), false))
+        for (let j = 0; j < 3; j++) {
 
+            for (let i = 0; i < this.mcd.getSubCategoryKeys(level).length; i++) {
+                let subCat = this.mcd.getSubCategoryKeys(level)[i];
+                this.list.push(new IntroductionExample(subCat, subCat, mcd.getExplanation(level, subCat), "explanation"))
 
-            let ys = mcd.getYesList(level, subCat)
-            let qs = mcd.getQList(level, subCat)
+                let ys = mcd.getYesList(level, subCat)
+                let qs = mcd.getQList(level, subCat)
 
-            // for (let j = 0; j < ys.length; j++) {
-            for (let j = 0; j < 1; j++) {
-                this.list.push(new IntroductionExample(subCat, ys[j], qs[j], false))
+                for (let k = 0; k < 3; k++) {
+                    this.list.push(new IntroductionExample(subCat, ys[j * 3 + k], qs[j * 3 + k], "normal"))
+                    if (j == 2 && k == 2) {
+                        k++;
+                        this.list.push(new IntroductionExample(subCat, ys[j * 3 + k], qs[j * 3 + k], "normal"))
+                    }
+                }
             }
         }
-        this.list.push(new IntroductionExample("", "", "", true));
+        this.list.push(new IntroductionExample("", "Now It's Your Turn...", "", "slide"));
+        this.list.push(new IntroductionExample("", "", "", "final"));
     }
 
     getNext() {
@@ -54,7 +60,9 @@ class Question {
 
     setSentence(sentence) {
         this.sentence = sentence;
-        document.getElementById(this.id).innerHTML = this.sentence;
+
+        document.getElementById("sentence").remove();
+        makeH2(this.sentence, "topDiv", "sentence");
     }
 
     clear() {
