@@ -1,6 +1,7 @@
 function makeDiv(divName, appendTo) {
     let div = document.createElement("div");
     div.id = divName;
+    div.className = divName;
     document.getElementById(appendTo).appendChild(div);
 }
 
@@ -47,7 +48,7 @@ function makeNextSlideButton(func, text, idText) {
     let btn = document.createElement("button");
     btn.id = "answer:" + idText;
     btn.innerHTML = text;
-    btn.className = "answerButton answer:Continue";
+    btn.className = "answerButton nextslidebutton answer:Continue";
     btn.onclick = func;
     document.getElementById("bottomDiv").appendChild(btn);
 }

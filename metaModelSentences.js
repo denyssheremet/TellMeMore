@@ -2,8 +2,8 @@
 var metaModelSentences = {
     "Level 1": {
         "Unspecified Noun": {
-            explanation: 
-            `
+            explanation:
+                `
             Nouns which do not refer to something specific (that you can touch)
             ___
             - Men do this...            -> Who specifically does this?     
@@ -11,8 +11,8 @@ var metaModelSentences = {
             - I know a lot of words.    -> Which words do you know?  
             ___
             `,
-            yes: 
-            `
+            yes:
+                `
             Just Do It!
             Books are interesting
             They are evil
@@ -24,8 +24,8 @@ var metaModelSentences = {
             People call me and they tell me: Donald, you are absolutely right
             Some people might think some very specific thoughts right now
             `,
-            q: 
-            `
+            q:
+                `
             Just do what specifically?
             Which books are interesting?
             Who specifically is evil?
@@ -78,8 +78,8 @@ var metaModelSentences = {
     I like food
 `},
         "Simple Deletion": {
-            explanation: 
-            `
+            explanation:
+                `
             A sentence in which a word has been deleted.
             ___
             - I feel. -> What do you feel?
@@ -87,8 +87,8 @@ var metaModelSentences = {
             - He doesn't understand. -> What doesn't he understand?
             ___
             `,
-            yes: 
-            `
+            yes:
+                `
             Look at how the carpet.
             I like how my microwave.
             Yes We Can!
@@ -102,7 +102,7 @@ var metaModelSentences = {
             Now you can see.
             `,
             q:
-            `
+                `
             Look at how the carpet what?
             You like how your microwave does what?
             Yes We Can Do What?
@@ -115,8 +115,8 @@ var metaModelSentences = {
             What are they not listening to?
             What do you see?
             `,
-            no: 
-            `
+            no:
+                `
             Look at how the carpet looks.
             I like how my microwave sounds.
             I know how juggle oranges.
@@ -150,8 +150,8 @@ var metaModelSentences = {
     You must not do that 
 `},
         "Comparative Deletion": {
-            explanation: 
-            `
+            explanation:
+                `
             Comparative deletions are the worst.
             ___
             This is a better idea. -> Better than what?
@@ -159,8 +159,8 @@ var metaModelSentences = {
             Comparative deletions are the worst. -> Worse than what?
             ___
             `,
-            yes: 
-            `
+            yes:
+                `
             Marbles are better. 
             This is the best project.
             Dutch people are more creative than Austians. 
@@ -172,8 +172,8 @@ var metaModelSentences = {
             He gets the most out of life.
             Ferarris are better than Lamborghinis
             `,
-            q: 
-            `
+            q:
+                `
             Marbles are better than what? Better for what?
             Best compared to what? 
             How do you measure creativity?
@@ -185,8 +185,8 @@ var metaModelSentences = {
             Compared to whom? In what way is he getting the most out of life? 
             Better in what way?
             `,
-            no: 
-            `
+            no:
+                `
             
             `,
             questions: [
@@ -217,8 +217,8 @@ var metaModelSentences = {
     },
     "Level 2": {
         "Unspecified Verb": {
-            explanation: 
-            `
+            explanation:
+                `
             A verb that is vague.
             ___
             I'm taking it easy. -> What are you doing specifically?
@@ -226,8 +226,8 @@ var metaModelSentences = {
             They are hanging out. -> What specifically are they doing?
             ___
             `,
-            yes: 
-            `
+            yes:
+                `
             We need to grow this company.
             We need to disrupt eduction.
             They are endangering the project.
@@ -239,8 +239,8 @@ var metaModelSentences = {
             He is waiting on his chance.
             They are looking for opportunities.
             `,
-            q: 
-            `
+            q:
+                `
             How (specifically) do you need to grow the company?
             How (specifically) do we need to disrupt education? 
             How (specifically) are they endangering the project?
@@ -252,8 +252,8 @@ var metaModelSentences = {
             How (specifically) is he waiting on his chance?
             How (specifically) are they looking for opportunities?
             `,
-            no: 
-            `
+            no:
+                `
             
             `,
             questions: [
@@ -281,8 +281,8 @@ var metaModelSentences = {
     Let's go!
 `},
         "Nominalization": {
-            explanation: 
-            `
+            explanation:
+                `
             The turning of a verb or adjective into a noun.
             ___
             We are in a discussion -> We are discussing.
@@ -293,8 +293,8 @@ var metaModelSentences = {
             -> ???
             ___
             `,
-            yes: 
-            `
+            yes:
+                `
             I am giving him information.
             He is a true salesman.
             We are in an argument. 
@@ -306,8 +306,8 @@ var metaModelSentences = {
             This is a disruption. 
             I am a student / teacher / educator.
             `,
-            no: 
-            `
+            no:
+                `
             I inform him.
             He sells (well).
             We are arguing.
@@ -320,7 +320,7 @@ var metaModelSentences = {
             I study / teach / educate.
             `,
             q:
-            `
+                `
             So you are informing him, of what do you inform him?
             So he sells, what does he sell?
             So you are arguing, what are you arguing about?
@@ -358,8 +358,8 @@ var metaModelSentences = {
     Decisions are hard
 `},
         "Universal Quantifiers": {
-            explanation: 
-            `
+            explanation:
+                `
             Words like Everything, Nothing, Everybody, Nobody, Always, Never, ...
             ___
             This always works -> Always? 
@@ -367,8 +367,8 @@ var metaModelSentences = {
             Everybody I know has a goldfish -> Everybody?
             ___
             `,
-            yes: 
-            `
+            yes:
+                `
             All people do this. 
             Nobody understands me.
             All cats are relaxed. 
@@ -379,8 +379,8 @@ var metaModelSentences = {
             Everybody knows about this.
             This trick always works.
             `,
-            q: 
-            `
+            q:
+                `
             All people? Was there ever somebody that didn't?
             Nobody? Not even you? Was there ever somebody that did?
             All cats? Was there ever a cat that wasn't?
@@ -390,9 +390,9 @@ var metaModelSentences = {
             Nothing? Is there anything you can see?
             Everybody? Is there anybody that doesn't?
             Always? Has it ever not worked?
-            `,        
-            no: 
-            `
+            `,
+            no:
+                `
             
             `,
             questions: [
@@ -421,69 +421,10 @@ Doctors are always healthy
 `},
     },
     "Level 3": {
-        "Complex Equivalence": {
-            explanation: 
-            `
-            Saying that an external event is equated to a internal state/emotion.
-            ___
-            The dog is barking, so he must hate me. -> How do you know that?
-            They are blinking a lot, so they must be happy. -> How do you know that?
-            That bird is looking at me the whole time, he must be out to get me. -> How do you know that?
-            ___
-            `,
-            yes: 
-            `
-            This means that.
-            He is eating pizza, so he must be have had a great day. 
-            Everybody is sitting, so they must be confused.
-            They haven't called back, so they are not interested.
-            I stuttered, it was a bad presentation.
-            She asked a lot of questions, so she must not be interested. 
-            He was born in February, so he must be eccentric.
-            They raised their voice, so they must be angry about something.
-            They are blinking a lot, so they must be up to something.
-            When we shook hands, they squeezed hard. They must be out to get me.           
-            `,
-            q: 
-            `
-            How do you know this means that? Could that be caused by something else? Could it mean something else?
-            How do you know him eating pizza means that he had a great day? Could it mean something else?
-            How does them sitting mean that they are confused? Could it mean something else?
-            How does them not calling back yet mean that they don't care? Could it mean something else?
-            How do you know that stuttering means having a bad presentation? Could it mean something else?
-            How does asking a lot of questions mean not being interested? Could it mean something else?
-            How does being born in February mean being eccentric? Could it mean something else?
-            How does them raising their voice mean that they are angry? Could it mean something else? 
-            How does blinking a lot mean that they must be up to something? Could it mean something else?
-            Could them squeezing hard mean something else?
-            `,
-            no: 
-            `
-            
-            `,
-            questions: [
-                "Her yelling means that she doesn't care about me -> How does her yelling mean that she doesn't care about you?",
-                "He is late, so he must be smart -> How does him being late mean that he is smart?",
-                "You cooked spaghetti, so you must be Italian -> How does cooking spaghetti mean that one is Italian?",
-            ],
-            examples:
-                `
-He's silent, that means he ...
-A good relationship means never having to say sorry
-To stay in this job I have to work harder
-You can't have a well paid job that is enjoyable too
-If you want success you have to give up your home life
-That means trouble
-He came in late on Saturday; I'm going to have to fire him
-When you talk like that you are going to get fired
-He wears the same colour shirt as the boss: that means he's in for promotion
-I saw them down the pub together; they must be having an affair
-He doesn't know what I want so he doesn't care about me
-She goes down to the gym so she must be healthy
-`},
+
         "Lost Performative": {
-            explanation: 
-            `
+            explanation:
+                `
             Opinion presented as fact.
             ___
             This is the correct way to eat apples. -> According to whom?
@@ -491,8 +432,8 @@ She goes down to the gym so she must be healthy
             This is a better way to do it. -> According to whom?
             ___
             `,
-            yes: 
-            `
+            yes:
+                `
             This is awesome. 
             Drinking 5 liters of water a day is good.
             Blue is sooo 2009.
@@ -504,8 +445,8 @@ She goes down to the gym so she must be healthy
             That was a terrible movie. 
             Working out every day is good for your health.
             `,
-            q: 
-            `
+            q:
+                `
             According to whom?
             According to whom?
             According to whom?
@@ -517,8 +458,8 @@ She goes down to the gym so she must be healthy
             According to whom?
             According to whom?
             `,
-            no: 
-            `
+            no:
+                `
             
             `,
             questions: [
@@ -538,8 +479,7 @@ People like people who are like them
 They're always doing that 
 People learn from people who are different
 This report needs finishing 
-Learning algebra will make you more successful
-A meeting was held 
+Learning algebra will make you successful
 This needs fixing
 Mistakes have been made 
 This report needs finishing
@@ -549,8 +489,8 @@ People are more flexible these days
 They've been at it again
 `},
         "Mind Reading": {
-            explanation: 
-            `
+            explanation:
+                `
             Pretending to know what somebody else thinks.
             ___
             You really like me. -> How do you know that?
@@ -558,8 +498,8 @@ They've been at it again
             I know you are feeling good about that car. -> How do you know that?
             ___
             `,
-            yes: 
-            `
+            yes:
+                `
             And hold on, I know what you are thinking.
             I don't want to talk to John, he is angry at me. 
             You are full of energy. 
@@ -571,8 +511,8 @@ They've been at it again
             You're going to like this, because you feel happy.
             I know you are thinking of making a change in your life.
             `,
-            q: 
-            `
+            q:
+                `
             How do you know that?
             How do you know that?
             How do you know that?
@@ -584,8 +524,8 @@ They've been at it again
             How do you know that?
             How do you know that?
             `,
-            no: 
-            `
+            no:
+                `
             
             `,
             questions: [
@@ -609,14 +549,14 @@ He'll get upset if you leave early
 He'll hate you if you do that 
 When I present, everyone is judging me
 The boss is in a foul mood today 
-You can see how effective MS Paint is
+You understand effective MS Paint is
 You know this isn't working 
 I know you're enjoying this
 I know what you mean
 `},
         "Cause and Effect": {
-            explanation: 
-            `
+            explanation:
+                `
             Saying that something causes something else. 
             A.K.A. blaming others.
             ___
@@ -625,8 +565,8 @@ I know what you mean
             I didn't write this paper because it rained. -> So when it rains, it is impossible for you to write a paper?
             ___
             `,
-            yes: 
-            `
+            yes:
+                `
             It hasn't worked in the past, so it won't work now.
             You make me mad.
             This pisses me off.
@@ -638,8 +578,8 @@ I know what you mean
             I can't do that because I have not studied math.
             They are that way because they grew up in a poor neighborhood.
             `,
-            q: 
-            `
+            q:
+                `
             How does that lead to each other? Has there ever been something that didn't work the first couple of times, but did work after that?
             How do you know it's me that is making you mad? Do I have control over your brain?
             How do you know it's this that is pissing you off? Was there ever a time this didn't piss you off?
@@ -651,8 +591,8 @@ I know what you mean
             How does not having studied math make it impossible to do that?
             Are there any people who grew up in a poor neighborhood that are not that way?
             `,
-            no: 
-            `
+            no:
+                `
             
             `,
             questions: [
@@ -684,8 +624,8 @@ Things always go wrong when she walks in here
     },
     "Level 4": {
         "Modal Operator of Necessity": {
-            explanation: 
-            `
+            explanation:
+                `
             Saying that something HAS to happen. 
             ___
             You have to clean your room. -> What would happen if I didn't?
@@ -693,8 +633,8 @@ Things always go wrong when she walks in here
             You must listen to me. -> What would happen if I didn't?
             ___
             `,
-            yes: 
-            `
+            yes:
+                `
             You need to do X.
             You need to go to go to school.
             You need to tell me the truth right now. 
@@ -706,8 +646,8 @@ Things always go wrong when she walks in here
             You should visit your grandma.
             They should listen to him. 
             `,
-            q: 
-            `
+            q:
+                `
             What would happen if you didn't do X?
             What would happen if you didn't?
             What would happen if you didn't?
@@ -720,8 +660,8 @@ Things always go wrong when she walks in here
             What would happen if they didn't?
 
             `,
-            no: 
-            `
+            no:
+                `
             
             `,
             questions: [
@@ -749,47 +689,47 @@ Things always go wrong when she walks in here
     This project must not fail to plant a tree in our garden before midnight
     You mustn't read this sentence right now
 `},
-//         "Modal Operator of Possibility": {
-            // explanation: 
-            // `
-            
-            // `,
-//             yes: 
-//             `
-            
-//             `,
-//             no: 
-//             `
-            
-//             `,
-//             questions: [
-//                 "",
-//                 "",
-//                 "",
-//             ],
-//             examples:
-//                 `
-//     I can't tell you the truth about what my given name is
-//     I can't go to your place now 
-//     I can't relax my right leg
-//     I can't call Eric now 
-//     I'll never be to able to learn how to tie my shoes
-//     I won't be able to complete project X before the deadline tomorrow
-//     I can't sleep now
-//     I can't apply for job X
-//     I couldn't possibly tell you what my real name is now
-//     I might not finish report X before 15:00 today 
-//     Today, I couldn't ask Jennie to raise my pay 5%
-//     I can't imagine that you showered with cold water today
-//     I can't concentrate on working on my job at the moment
-//     Tomorrow, I might just tell him that I stole his Apple watch
-//     I couldn't fire her from her current position
-//     I could eat an apple if I tried 
-//     I might do what he says I should do at 19:00
-// `},
+        //         "Modal Operator of Possibility": {
+        // explanation: 
+        // `
+
+        // `,
+        //             yes: 
+        //             `
+
+        //             `,
+        //             no: 
+        //             `
+
+        //             `,
+        //             questions: [
+        //                 "",
+        //                 "",
+        //                 "",
+        //             ],
+        //             examples:
+        //                 `
+        //     I can't tell you the truth about what my given name is
+        //     I can't go to your place now 
+        //     I can't relax my right leg
+        //     I can't call Eric now 
+        //     I'll never be to able to learn how to tie my shoes
+        //     I won't be able to complete project X before the deadline tomorrow
+        //     I can't sleep now
+        //     I can't apply for job X
+        //     I couldn't possibly tell you what my real name is now
+        //     I might not finish report X before 15:00 today 
+        //     Today, I couldn't ask Jennie to raise my pay 5%
+        //     I can't imagine that you showered with cold water today
+        //     I can't concentrate on working on my job at the moment
+        //     Tomorrow, I might just tell him that I stole his Apple watch
+        //     I couldn't fire her from her current position
+        //     I could eat an apple if I tried 
+        //     I might do what he says I should do at 19:00
+        // `},
         "Presupposition": {
-            explanation: 
-            `
+            explanation:
+                `
             Realize that you already know what presuppositions are. 
             ___
             Do you realize that you're worried? -> What makes you assume that I'm worried?
@@ -797,8 +737,8 @@ Things always go wrong when she walks in here
             You used to be happy. -> What makes you assume that I'm not happy now?
             ___
             `,
-            yes: 
-            `
+            yes:
+                `
             You can begin to calm down now. 
             Do you realize that you are repressing your emotions?
             I wonder whether you'll notice how beautiful the ceiling is. 
@@ -810,8 +750,8 @@ Things always go wrong when she walks in here
             I think it is the lobster that they want to steal tonight.
             After you've done X, will you have time to do Y?
             `,
-            q: 
-            `
+            q:
+                `
             What makes you assume that I'm not calm now?
             What makes you assume that I'm repressing emotions?
             What makes you assume that the ceiling is beautiful?
@@ -845,6 +785,66 @@ I can't learn to use this properly because I don't have enough time
 What's going to go wrong next?
 I'm just waiting for a bus
 I'll be happy when this is all over
+`},
+        "Complex Equivalence": {
+            explanation:
+                `
+    Saying that an external event is equated to a internal state/emotion.
+    ___
+    The dog is barking, so he must hate me. -> How do you know that?
+    They are blinking a lot, so they must be happy. -> How do you know that?
+    That bird is looking at me the whole time, he must be out to get me. -> How do you know that?
+    ___
+    `,
+            yes:
+                `
+    This means that.
+    He is eating pizza, so he must be have had a great day. 
+    Everybody is sitting, so they must be confused.
+    They haven't called back, so they are not interested.
+    I stuttered, it was a bad presentation.
+    She asked a lot of questions, so she must not be interested. 
+    He was born in February, so he must be eccentric.
+    They raised their voice, so they must be angry about something.
+    They are blinking a lot, so they must be up to something.
+    When we shook hands, they squeezed hard. They must be out to get me.           
+    `,
+            q:
+                `
+    How do you know this means that? Could that be caused by something else? Could it mean something else?
+    How do you know him eating pizza means that he had a great day? Could it mean something else?
+    How does them sitting mean that they are confused? Could it mean something else?
+    How does them not calling back yet mean that they don't care? Could it mean something else?
+    How do you know that stuttering means having a bad presentation? Could it mean something else?
+    How does asking a lot of questions mean not being interested? Could it mean something else?
+    How does being born in February mean being eccentric? Could it mean something else?
+    How does them raising their voice mean that they are angry? Could it mean something else? 
+    How does blinking a lot mean that they must be up to something? Could it mean something else?
+    Could them squeezing hard mean something else?
+    `,
+            no:
+                `
+    
+    `,
+            questions: [
+                "Her yelling means that she doesn't care about me -> How does her yelling mean that she doesn't care about you?",
+                "He is late, so he must be smart -> How does him being late mean that he is smart?",
+                "You cooked spaghetti, so you must be Italian -> How does cooking spaghetti mean that one is Italian?",
+            ],
+            examples:
+                `
+He's silent, that means he ...
+A good relationship means never having to say sorry
+To stay in this job I have to work harder
+You can't have a well paid job that is enjoyable too
+If you want success you have to give up your home life
+That means trouble
+He came in late on Saturday; I'm going to have to fire him
+When you talk like that you are going to get fired
+He wears the same colour shirt as the boss: that means he's in for promotion
+I saw them down the pub together; they must be having an affair
+He doesn't know what I want so he doesn't care about me
+She goes down to the gym so she must be healthy
 `},
     }
 }
