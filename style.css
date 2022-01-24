@@ -14,7 +14,15 @@ p {
 
 #big {
     color: darkorange;
-    margin-top: 10%;
+    margin-top: 5%;
+}
+#big2 {
+    color: darkorange;
+    margin-top: 5%;
+}
+
+#green {
+    color: rgb(207, 140, 14);
 }
 
 .bigbtn {
@@ -22,7 +30,7 @@ p {
     color: gold;
     padding: 10px;
     font-size: 16px;
-    margin: 3   px;
+    /* margin: 3px; */
     cursor: pointer;
 }
   
@@ -66,9 +74,21 @@ p {
     display: block;
 }
 
+#infoDiv {
+    /* text-align: center; */
+    display: block;
+    color: white;
+}
+
+#whiteP {
+    color: white;
+    width: 50%;
+    /* text-align: center; */
+}
+
 #homepage {
     text-align: center;
-    margin-top: 10%;
+    /* margin-top: 5%; */
 }
 
 
