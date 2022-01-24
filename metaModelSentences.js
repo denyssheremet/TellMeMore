@@ -560,7 +560,7 @@ Studying architecture will make you sad
 If I do that I'll get into trouble
 My boss makes me angry
 Music makes me relax
-Eating chocolate will make you thinner
+Eating chocolate makes me happy
 We can't do that because he won't listen
 There's no point trying, he won't listen
 Working in a multidisciplinary group causes problems
