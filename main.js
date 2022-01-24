@@ -4,6 +4,7 @@ var activeMetaPrograms = "all";
 var mcd;
 var question;
 var ie;
+var reg;
 
 
 function answerChosen(answer) {
@@ -19,14 +20,39 @@ function answerChosen(answer) {
         }
     } else {
         question.wrong = 0;
-        chooseSentence();
+        revealAnswer();
+        hideAnswerbuttons();
+        // showButton("answer:Continue");
+        showButton("answer:NextQuestion");
+
     };
 };
 
+function hideAnswerbuttons() {
+    let ansButt = document.getElementsByClassName("answerButton");
+    for (let i = 0; i < ansButt.length; i++) {
+        ansButt[i].style.display = "none";
+    }
+}
+
 function chooseSentence() {
-    let sentence = mcd.randExample();
-    question.setSentence(sentence.example);
-    question.setAnswer(sentence.subCategory);
+    ie = reg.getNext()
+    if (ie.ieType === "final") {
+        if (mcd.chosenCategory === "Level 4") {
+            question.setSentence("Congratulations!! You've Finished This Game!!!");
+            hideAnswerbuttons();
+            showButton("answer:Home");
+        } else {
+            question.setSentence("Congratulations!! You've Finished This Level!!!");
+            hideAnswerbuttons();
+            showButton("answer:NextLevel");
+        }
+
+    } else {
+        question.setSentence(ie.yes);
+        question.setAnswer(ie.subCategory);
+    }
+
 };
 
 function selectMappings(choice, explanation = false) {
@@ -55,6 +81,9 @@ function selectMappings(choice, explanation = false) {
         selectedAnswerButtons[i].style.display = "block";
     }
 
+    if (document.getElementById("revealedAnswer") !== null) {
+        document.getElementById("revealedAnswer").remove();
+    }
     chooseSentence();
 }
 
@@ -91,8 +120,14 @@ function showButton(name) {
     toggleVisibility("answer:LetsGo", 0);
     toggleVisibility("answer:Reveal", 0);
     toggleVisibility("answer:NextSlide", 0);
-    toggleVisibility(name, 1);
-    
+    if (document.getElementById(name) !== null) {
+        console.log("yes")
+        toggleVisibility(name, 1);
+    }
+    else {
+        console.log(name);
+        console.log(document.getElementById(name))
+    }
 }
 
 function nextExplanationSentence(ieg) {
@@ -138,6 +173,17 @@ function nextExplanationSentence(ieg) {
         showButton("answer:Reveal");
     }
 
+}
+
+function nextLevel(level) {
+    switch (level) {
+        case "Level 1":
+            return "Level 2";
+        case "Level 2":
+            return "Level 3";
+        case "Level 3":
+            return "Level 4";
+    }
 }
 
 function revealAnswer() {
@@ -187,6 +233,8 @@ function startMultipleChoiceTrainer(level = "Level 1") {
     toggleVisibility("levels", 1);
     toggleVisibility("homepage", 0);
 
+
+
     clearIndex();
     document.getElementById("title").innerHTML = "Tell Me More! v9.3";
     question = new Question();
@@ -195,6 +243,8 @@ function startMultipleChoiceTrainer(level = "Level 1") {
 
     mcd = new MultipleChoiceDict(metaModelSentences);
     mcd.chosenCategory = level;
+
+    reg = new RealExampleGiver(mcd, level);
 
     // // Make Answer Buttons
     for (let i = 0; i < mcd.getCategoryKeys().length; i++) {
@@ -211,6 +261,11 @@ function startMultipleChoiceTrainer(level = "Level 1") {
     }
 
     makeH1("Now It's Your Turn...", "topDiv", "subCategory");
+
+    makeNextSlideButton(function () { selectMappings(level) }, "Easy! Next!", "NextQuestion");
+    makeNextSlideButton(function () { startIntroduction(nextLevel(level)) }, "Go To Next Level!", "NextLevel");
+    makeNextSlideButton(function () { goToHomepage() }, "This is the best!", "Home");
+
     selectMappings(mcd.chosenCategory);
 
 
@@ -231,7 +286,9 @@ function clearIndex() {
 
 function toggleVisibility(id, value = -1) {
     var x = document.getElementById(id);
-
+    if (x === null) {
+        return;
+    }
     if (value === 0) {
         x.style.display = "none";
     } else if (value === 1) {

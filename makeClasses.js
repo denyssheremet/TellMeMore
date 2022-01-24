@@ -1,3 +1,21 @@
+function shuffle1(array) {
+    let currentIndex = array.length, randomIndex;
+
+    // While there remain elements to shuffle...
+    while (currentIndex != 0) {
+
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+
+        // And swap it with the current element.
+        [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex], array[currentIndex]];
+    }
+
+    return array;
+}
+
 class IntroductionExample {
     constructor(subCategory, yes, q, ieType) {
         this.subCategory = subCategory;
@@ -15,7 +33,7 @@ class IntroductionExampleGiver {
         this.list = [];
 
         for (let j = 0; j < 3; j++) {
-            this.list.push(new IntroductionExample("", "Round " + (j+1) + "/3...", "", "slide"));
+            this.list.push(new IntroductionExample("", "Round " + (j + 1) + "/3...", "", "slide"));
 
             for (let i = 0; i < this.mcd.getSubCategoryKeys(level).length; i++) {
                 let subCat = this.mcd.getSubCategoryKeys(level)[i];
@@ -35,6 +53,39 @@ class IntroductionExampleGiver {
         }
         this.list.push(new IntroductionExample("", "Now It's Your Turn...", "", "slide"));
         this.list.push(new IntroductionExample("", "", "", "final"));
+    }
+
+    getNext() {
+        return this.list[this.counter++];
+    }
+
+}
+
+
+class RealExampleGiver {
+    constructor(mcd, level) {
+        this.level = level;
+        this.counter = 0;
+        this.mcd = mcd;
+        this.list = [];
+
+        for (let i = 0; i < mcd.getSubCategoryKeys(level).length; i++) {
+            let subCat = mcd.getSubCategoryKeys(level)[i];
+            for (let j = 0; j < 10; j++) {
+                this.list.push(
+                    new IntroductionExample(subCat,
+                        mcd.getExamplesList(level, subCat)[j],
+                        mcd.getQuestionsList(level, subCat)[j],
+                        "normal"
+                    )
+                )
+            }
+        }
+        this.list = shuffle1(this.list);
+        this.list.push(new IntroductionExample("", "", "", "final"));
+        console.log(this.list);
+
+
     }
 
     getNext() {
@@ -146,6 +197,10 @@ class MultipleChoiceDict {
         return this.dict[category][subCategory].q;
     }
 
+    getQuestionsList(category, subCategory) {
+        return this.dict[category][subCategory].questions;
+    }
+
     getExplanation(category, subCategory) {
         return this.dict[category][subCategory].explanation;
     }
@@ -182,12 +237,14 @@ class MultipleChoiceDict {
         for (var [k1, v1] of Object.entries(dict)) {
             for (var [key, value] of Object.entries(dict[k1])) {
                 dict[k1][key].examples = value.examples.split("\n").slice(1, -1);
+                dict[k1][key].questions = value.questions.split("\n").slice(1, -1);
                 dict[k1][key].yes = value.yes.split("\n").slice(1, -1);
                 dict[k1][key].q = value.q.split("\n").slice(1, -1);
                 dict[k1][key].explanation = value.explanation.split("\n").slice(1, -1);
                 // Trim spaces around sentences
                 for (let i = 0; i < dict[k1][key].examples.length; i++) {
                     dict[k1][key].examples[i] = dict[k1][key].examples[i].replace('•', '').trim();
+                    dict[k1][key].questions[i] = dict[k1][key].questions[i].replace('•', '').trim();
                 }
                 for (let i = 0; i < dict[k1][key].yes.length; i++) {
                     dict[k1][key].yes[i] = dict[k1][key].yes[i].replace('•', '').trim();

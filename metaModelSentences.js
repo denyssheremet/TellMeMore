@@ -322,7 +322,6 @@ var metaModelSentences = {
             What is he doing?
             What is she doing?
             How are you running on empty? What are you doing?
-            Do what? 
             In what way have you grown? What have you learned?
     `
         },
@@ -363,7 +362,6 @@ var metaModelSentences = {
             examples:
                 `
 He never listens to me
-Nobody likes hummus
 He always tells the truth
 All companies are greedy 
 No one cares about anything anymore
@@ -377,7 +375,6 @@ She always has an excuse for everything
             questions:
                 `
             Never? Has he ever listened to anything you said?
-            Nobody? Is there anyone that likes hummus?
             Always? Has he ever not done that?
             All companies? 
             No one? Anything?
@@ -434,7 +431,7 @@ Managers are overpaid
 You can't trust salespeople
 Marketing is an easy job
 People like people who are like them
-They're always doing that 
+They are good people
 People learn from people who are different
 Mistakes have been made 
 This report needs finishing
@@ -576,7 +573,7 @@ Working in a multidisciplinary group causes problems
             How do you know that?
             How can he do that?
             How can music do that?
-            How do you know that it's the chocolate that is making you thinner? Could there be any other explanation?
+            How do you know that it's the chocolate that is making you thinner?
             How does him not listening cause you not being able to do this?
             How does him not listening lead to there being no point in trying?
             How does working in a multidisciplinary group cause problems? Was there ever a time when it worked fine?
